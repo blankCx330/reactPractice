@@ -4,7 +4,7 @@ import './App.css'
 function Square() {
   return (
     <>
-      <button className='square'>x</button>
+      <button className='square'></button>
     </>
   )
 }
@@ -13,7 +13,23 @@ function App() {
 
   return (
     <>
-      <Square />
+      <div className='ground'>
+        <div className='column-div'>
+          <Square />
+          <Square />
+          <Square />
+        </div>
+        <div className='column-div'>
+          <Square />
+          <Square />
+          <Square />
+        </div>
+        <div className='column-div'>
+          <Square />
+          <Square />
+          <Square />
+        </div>
+      </div>   
     </>
   )
 }
