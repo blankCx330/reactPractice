@@ -4,9 +4,18 @@ import './App.css'
 const text = '';
 
 function Square({value}) {
+  function handleClick() {
+    alert('You clicked square ' + value);
+  }
+
   return (
     <>
-      <button className='square'>{ value }</button>
+      <button 
+        className='square'
+        onClick={handleClick}
+      >
+        { value }
+      </button>
     </>
   )
 }
