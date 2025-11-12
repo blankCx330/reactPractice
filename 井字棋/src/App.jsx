@@ -5,11 +5,20 @@ let text = '';
 let state = true;
 
 function Board() {
+  const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
   function handleClick(i) {
+    if (squares[i]) {
+      return;
+    }
     const nextSquares = squares.slice();
-    nextSquares[i] = 'X'
+    if (xIsNext) {
+      nextSquares[i] = 'X'
+    }else{
+      nextSquares[i] = 'O'
+    }
     setSquares(nextSquares);
+    setXIsNext(!xIsNext);
   }
 
   return (
@@ -21,6 +30,10 @@ function Board() {
             因为这样会在渲染时就调用handleClick函数，而不是在点击时调用
             但问题是handleClick函数中调用了setSquares，导致组件重新渲染，从而无限循环
             所以需要使用箭头函数包裹handleClick函数，确保只有在点击时才调用
+
+            在 React 中
+            通常使用 onSomething 命名代表事件的 props
+            使用 handleSomething 命名处理这些事件的函数。
           */}
           <Square value={squares[0]} onSquareClick={() => handleClick(0)}/>
           <Square value={squares[1]} onSquareClick={() => handleClick(1)}/>
