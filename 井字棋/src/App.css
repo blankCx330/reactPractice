@@ -13,8 +13,14 @@
     border: 5px solid #000;
     width: 30vw;
     margin: auto;
-    margin-top: 20vh;
+    margin-top: 10vh;
 }
 .column-div{
     display: flex;
+}
+.status{
+    text-align: center;
+    font-size: 4vw;
+    font-weight: bold;
+    margin-bottom: 2vh;
 }
