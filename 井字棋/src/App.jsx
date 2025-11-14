@@ -4,9 +4,7 @@ import './App.css'
 let text = '';
 let state = true;
 
-function Board() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
+function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
     if (squares[i] || calcilateWinner(squares)) {
       return;
@@ -17,8 +15,7 @@ function Board() {
     }else{
       nextSquares[i] = 'O'
     }
-    setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    onPlay(nextSquares);
   }
 
   const winner = calcilateWinner(squares);
@@ -32,26 +29,6 @@ function Board() {
     status = 'Winner: ' + winner;
   } else {
     status = 'Next player: ' + (xIsNext ? 'O' : 'X');
-  }
-
-  function calcilateWinner(squares) {
-    const lines = [
-      [0, 1, 2],
-      [3, 4, 5],
-      [6, 7, 8],
-      [0, 3, 6],
-      [1, 4, 7],
-      [2, 5, 8],
-      [0, 4, 8],
-      [2, 4, 6],
-    ];
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
-      }
-    }
-    return null;
   }
 
   return (
@@ -88,6 +65,43 @@ function Board() {
   );
 }
 
+  function Game() {
+    const [xIsNext, setXIsNext] = useState(true);
+    const [history, setHistory] = useState([Array(9).fill(null)]);
+    const currentSquares = history[history.length -1];
+
+    function handlePlay(nextSquares) {
+      setHistory([...history, nextSquares]);
+      setXIsNext(!xIsNext);
+    }
+
+    return (
+      <>
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+      </>
+    )
+  }
+
+  function calcilateWinner(squares) {
+    const lines = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    for (let i = 0; i < lines.length; i++) {
+      const [a, b, c] = lines[i];
+      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        return squares[a];
+      }
+    }
+    return null;
+  }
+
 
 function Square({value, onSquareClick}) {
   return (
@@ -106,7 +120,7 @@ function App() {
 
   return (
     <>
-      <Board />
+      <Game />
     </>
   )
 }
