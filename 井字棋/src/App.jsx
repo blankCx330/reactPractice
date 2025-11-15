@@ -71,7 +71,7 @@ function Board({ xIsNext, squares, onPlay }) {
     const currentSquares = history[history.length -1];
 
     function handlePlay(nextSquares) {
-      setHistory([...history, nextSquares]);
+      setHistory([...history, nextSquares]);//对history进行浅拷贝
       setXIsNext(!xIsNext);
     }
 
