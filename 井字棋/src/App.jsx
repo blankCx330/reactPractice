@@ -94,7 +94,8 @@ function Board({ xIsNext, squares, onPlay }) {
       [2, 4, 6],
     ];
     for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
+      const [a, b, c] = lines[i];//获取对应的三个坐标
+      //当这三个坐标的值相等且不为空时，说明有玩家获胜
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
         return squares[a];
       }
