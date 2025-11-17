@@ -5,17 +5,21 @@ let text = '';
 let state = true;
 
 function Board({ xIsNext, squares, onPlay }) {
+
+  // 处理点击方格的函数
   function handleClick(i) {
+    // 如果该方格已有值，或者已有玩家获胜，则不进行任何操作
     if (squares[i] || calcilateWinner(squares)) {
       return;
     }
+    // 创建 squares 的副本
     const nextSquares = squares.slice();
     if (xIsNext) {
       nextSquares[i] = 'X'
     }else{
       nextSquares[i] = 'O'
     }
-    onPlay(nextSquares);
+    onPlay(nextSquares);//将新的 squares 状态传递给父组件 history
   }
 
   const winner = calcilateWinner(squares);
@@ -70,6 +74,7 @@ function Board({ xIsNext, squares, onPlay }) {
     const [history, setHistory] = useState([Array(9).fill(null)]);
     const currentSquares = history[history.length -1];
 
+    //处理下一个棋盘状态的函数
     function handlePlay(nextSquares) {
       setHistory([...history, nextSquares]);//对history进行浅拷贝
       setXIsNext(!xIsNext);
