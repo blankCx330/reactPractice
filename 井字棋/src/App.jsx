@@ -72,7 +72,7 @@ function Board({ xIsNext, squares, onPlay }) {
   function Game() {
     const [xIsNext, setXIsNext] = useState(true);
     const [history, setHistory] = useState([Array(9).fill(null)]);
-    const currentSquares = history[history.length -1];
+    const currentSquares = history[history.length -1];//声明当前棋盘状态
 
     //处理下一个棋盘状态的函数
     function handlePlay(nextSquares) {
@@ -88,6 +88,7 @@ function Board({ xIsNext, squares, onPlay }) {
   }
 
   function calcilateWinner(squares) {
+    //胜利的组合
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
