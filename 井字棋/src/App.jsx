@@ -87,6 +87,10 @@ function Board({ xIsNext, squares, onPlay }) {
     )
   }
 
+  // 计算获胜者的函数
+  // 接受当前 squares 作为参数
+  // 返回获胜者的标记（'X' 或 'O'），如果没有获胜者则返回 null
+  // squares 是一个长度为9的数组，表示井字棋的9个格子
   function calcilateWinner(squares) {
     //胜利的组合
     const lines = [
@@ -110,6 +114,9 @@ function Board({ xIsNext, squares, onPlay }) {
   }
 
 // 方格组件
+// 接受 value 和 onSquareClick 作为 props
+// value: 方格的值（'X'、'O' 或 null）
+// onSquareClick: 点击方格时调用的函数
 function Square({value, onSquareClick}) {
   return (
     <>
