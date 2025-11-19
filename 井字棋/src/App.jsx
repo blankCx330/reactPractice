@@ -109,7 +109,7 @@ function Board({ xIsNext, squares, onPlay }) {
     return null;
   }
 
-
+// 方格组件
 function Square({value, onSquareClick}) {
   return (
     <>
