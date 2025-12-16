@@ -13,7 +13,6 @@
     border: 5px solid #000;
     width: 30vw;
     margin: auto;
-    margin-top: 10vh;
 }
 .column-div{
     display: flex;
@@ -22,5 +21,32 @@
     text-align: center;
     font-size: 4vw;
     font-weight: bold;
-    margin-bottom: 2vh;
+    margin-bottom: 5px;
+}
+.history-button{
+    font-size: 3vw;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #8adcf5;
+    padding: 0.5rem 1rem;
+    margin: 2px;
+    cursor: pointer;
+}
+.history-div{
+    position: absolute;
+    left: 70%;
+}
+.history-div > ol{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.history-li{
+    list-style: none;
+}
+.game-div{
+    display: flex;
+    flex-direction: column;
 }
