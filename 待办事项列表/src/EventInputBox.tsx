@@ -1,8 +1,8 @@
 import { useRef,useState } from "react";
-export default function EventInputBox({getItem}:any) {
+export default function EventInputBox({addItem}: any ) {
   const inputRef = useRef<HTMLInputElement>(null);
   function getItemInformation(){
-    getItem(inputRef.current!.value);
+    addItem({inputValue: inputRef.current!.value,id: new Date().getTime()});
   }
 
   return (
