@@ -1,0 +1,52 @@
+.items-and-button-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: rgba(60, 216, 255, 0.548);
+}
+.items-and-button-container:hover{
+    outline: 3px solid rgba(255, 115, 0, 0.459);
+}
+
+
+.items{
+    margin-left: 5px;
+    font-size: 1rem;
+    max-width: 75%;
+    display: flex;
+    align-items: center;
+}
+
+.complete-and-delete{
+    display: flex;
+    width: 20%;
+}
+
+.delete-btn{
+    width: 30%;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    font-size: 1.3rem;
+    background-color: rgba(255, 99, 71, 0.842);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.delete-btn:hover{
+     background-color: rgba(255, 0, 0, 0.659);
+    cursor: pointer;
+}
+
+.completed-btn{
+    width: 70%;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 1.3rem;
+    background-color: rgba(247, 189, 103, 0.842);
+}
+.completed-btn:hover{
+    cursor: pointer;
+    background-color: rgba(255, 115, 0, 0.659);
+}

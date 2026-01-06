@@ -1,0 +1,9 @@
+.list-item-container{
+    width: 80%;
+    margin: 20px auto;
+    min-height: 20vh;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.171);
+    background-color: #feffe0;
+}
