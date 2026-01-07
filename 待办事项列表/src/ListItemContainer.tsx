@@ -4,4 +4,9 @@ export default function ListItemContainer({children}: {children?: React.ReactNod
             {children}
         </div>
     )
+    return (
+        <div className="list-item-container">
+            {children}
+        </div>
+    )
 }
