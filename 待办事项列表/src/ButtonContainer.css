@@ -9,11 +9,6 @@
     margin-right: auto;
 }
 
-.button-container-btn-container{
-    display: flex;
-    justify-content: center;
-    align-items: center 
-}
 
 .button-container-btn{
     width: 35%;
@@ -27,4 +22,9 @@
 .button-container-btn:hover{
     cursor: pointer;
     background-color: rgba(255, 115, 0, 0.659);
+    transform: translate(0, -3px);
+}
+.button-container-btn:active{
+    outline: 3px solid rgba(255, 115, 0, 0.459);
+    transform: scale(0.9);
 }

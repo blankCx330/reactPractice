@@ -35,8 +35,10 @@
     align-items: center;
 }
 .delete-btn:hover{
-     background-color: rgba(255, 0, 0, 0.659);
+    background-color: rgb(228, 53, 53);
     cursor: pointer;
+    outline: 2px solid rgb(0, 0, 0);
+    transform: translate(2px, 0);
 }
 
 .completed-btn{
@@ -48,5 +50,11 @@
 }
 .completed-btn:hover{
     cursor: pointer;
-    background-color: rgba(255, 115, 0, 0.659);
+    background-color: rgb(255, 115, 0);
+    transform: translate(-2px, 0);
+    outline: 2px solid rgb(0, 0, 0);
+}
+.completed-btn:active{
+    outline: 3px solid rgba(255, 115, 0, 0.459);
+    transform: scale(0.9);
 }

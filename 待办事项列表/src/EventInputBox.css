@@ -35,13 +35,17 @@
 }
 
 .event-input:focus{
-    outline: 3px solid rgba(7, 3, 255, 0.5);
+    outline: 3px solid rgb(114, 112, 255);
 }
 
 .add-button:hover{
-    background-color: rgba(0, 0, 0, 0.342);
+    background-color: rgba(0, 0, 0, 0.144);
     cursor: pointer;
+    outline: 3px solid rgb(62, 58, 250);
+    transform: translate(2px, 0);
 }
 .add-button:active{
-    background-color: rgba(0, 0, 0, 0.719);
+    background-color: rgba(0, 0, 0, 0.507);
+    outline: auto;
+    transform: translate(-2px, 0);
 }
