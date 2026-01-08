@@ -1,4 +1,4 @@
-import { useRef, useState} from "react"
+import { useRef, useState, useEffect } from "react"
 import EventInputBox from './EventInputBox'
 import ListItemContainer from './ListItemContainer'
 import ListOfItems from './ListOfItems'
@@ -49,12 +49,11 @@ export default function ListContainer() {
      * @param id - 要切换状态的事项的ID
      */
     const handleCompletedBtn = (id:number) => {
-    setItems(value => {
-        const newItems = value.map(items => items.id === id ? {...items, completed: !items.completed} : items) // 切换指定ID事项的完成状态
-        historyListRef.current = newItems // 更新历史记录
-        return newItems
-    })
-
+        setItems(value => {
+            const newItems = value.map(items => items.id === id ? {...items, completed: !items.completed} : items) // 切换指定ID事项的完成状态
+            historyListRef.current = newItems // 更新历史记录
+            return newItems
+        })
     }
     /**
      * 显示所有已完成事项
@@ -101,6 +100,45 @@ export default function ListContainer() {
 
     // 根据当前显示类型设置列表标题
     const listTitle = displayListType === 'all' ? '所有事项' : displayListType === 'completed' ? '已完成事项' : '未完成事项'
+
+    /**
+     * 将当前items数据存储到浏览器的localStorage中
+     * 该函数将items数组转换为JSON字符串格式后保存
+     * 存储的键名为'items'
+     */
+    const storeData = () => {
+        // 使用localStorage的setItem方法保存数据
+        // 将items数组通过JSON.stringify转换为字符串格式
+        localStorage.setItem('items', JSON.stringify(historyListRef.current))
+    }
+
+    /**
+     * 从本地存储中获取数据并设置到状态中
+     * 该函数会尝试从localStorage中获取名为'items'的数据
+     * 如果存在数据，则将其解析并设置到items状态中
+     */
+    const getData = () => {
+        // 从localStorage中获取名为'items'的数据
+        const data = localStorage.getItem('items')
+        // 检查是否存在数据
+        if(data){
+            // 将JSON字符串解析为对象并设置到items状态中
+            historyListRef.current = JSON.parse(data)
+        }
+    }
+
+    useEffect(() => {
+        if(historyListRef.current.length > 0){
+            storeData() // 每当items状态变化时存储数据
+        }
+    }, [historyListRef.current])
+
+    useEffect(() => {
+        getData() // 组件加载时获取数据
+        
+        setItems(historyListRef.current)
+        //不放在外面是因为setItems会触发重新渲染，重新渲染会再次加载组件，导致无限循环 
+    }, [])
 
     // 将事项列表转换为ListOfItems组件
     const itemsList = items.map((itemsValue) =>{

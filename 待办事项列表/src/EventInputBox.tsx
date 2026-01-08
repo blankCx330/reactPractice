@@ -13,6 +13,11 @@ export default function EventInputBox({addItem}: any ) {
             });
     inputRef.current!.value = '';
   }
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>){
+    if(e.key === 'Enter'){
+      getItemInformation();
+    }
+  }
 
   return (
     <>
@@ -21,6 +26,7 @@ export default function EventInputBox({addItem}: any ) {
               className="event-input"
               type="text"
               ref={inputRef}
+              onKeyDown={e => handleKeyDown(e)}
               placeholder="请输入待办事项" 
             />
             <button onClick={getItemInformation} className="add-button">添加</button>
