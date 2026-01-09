@@ -1,12 +1,13 @@
+import WeatherApp from './WeatherApp';
+
 import './App.css'
-import { useEffect } from 'react'
+import './WeatherApp.css'
 
 function App() {
-
+  
   return (
     <>
-      <div>天气咨询项目</div>
-      
+      <WeatherApp />
     </>
   )
 }
