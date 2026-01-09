@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# .gitignore
+# 忽略环境变量文件
+.env
+# 忽略本地环境配置
+.env.local
+.env.*.local
