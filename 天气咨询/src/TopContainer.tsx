@@ -2,10 +2,15 @@ import './topContainer.css'
 import logo from './assets/logo.png'
 import Search from './Search'
 import MapPositioningSVG from './MapPositioningSVG'
-
-const list = ['北京', '上海', '广州', '深圳', '杭州', '成都', '武汉', '重庆', '西安 ']
-const cityList = list.map(item => <option value={item} key={item} />)
-export default function TopContainer() {
+type TopCity = {
+    name: string;
+    id: string;
+  }
+export default function TopContainer({topCityList = []}: {topCityList: TopCity[]}) {
+    const cityList = topCityList.map(city => {
+        return <option key={city.id} value={city.name} />
+    })
+    
     return(
         <div className="top-container">
             <img src={logo} alt="logo" className='logo'/>
