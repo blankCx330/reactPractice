@@ -1,4 +1,5 @@
 import TopContainer from "./TopContainer"
+import LeftContainer from "./LeftContainer"
 import { useQuery } from "@tanstack/react-query"
 export default function WeatherApp() {
   const apiHost = import.meta.env.VITE_API_HOST
@@ -28,7 +29,8 @@ export default function WeatherApp() {
 
   return(
     <div className="weather-app">
-      <TopContainer topCityList={topCityList} />
+      <TopContainer topCityList={topCityList} /> 
+      <LeftContainer />
     </div>
   )
 }

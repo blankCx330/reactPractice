@@ -1,7 +1,7 @@
 import './topContainer.css'
 import logo from './assets/logo.png'
-import Search from './Search'
-import MapPositioningSVG from './MapPositioningSVG'
+import Search from './iconSVG/Search'
+import MapPositioningSVG from './iconSVG/MapPositioningSVG'
 type TopCity = {
     name: string;
     id: string;

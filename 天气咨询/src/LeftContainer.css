@@ -1,0 +1,9 @@
+.left-container{
+    border: 1px solid #fff;
+    height: 91vh;
+    width: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

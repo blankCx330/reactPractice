@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.16",
+    "qweather-icons": "^1.8.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
