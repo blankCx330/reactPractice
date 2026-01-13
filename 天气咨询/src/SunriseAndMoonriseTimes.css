@@ -1,0 +1,94 @@
+.sunrise-and-moonrise-times{
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.sunrise-and-moonrise-times {
+    border-radius: 15px;
+    padding: 15px;
+    width: 50%;
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(40, 40, 40, 0.9));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.sunrise-and-moonrise-times:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.time-text {
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.time-div {
+    flex: 1;  /* 关键：让每个时间容器均分剩余空间 */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid #FFC107;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    height: 80%;
+    margin: 5px;
+}
+
+.time-div:last-child {
+    border-left-color: #2196F3;
+}
+
+.time-div:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-left-width: 6px;
+    transform: translateX(5px);
+}
+
+.sunrise-and-moonrise-times i {
+    font-size: 10vh;
+    color: #FFC107;
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.time-div:last-child i {
+    color: #2196F3;
+    text-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+}
+
+.sunrise-and-moonrise-times i:hover {
+    transform: scale(1.1);
+}
+
+.sunrise-time-value, .moonrise-time-value {
+    color: #FFC107;
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 4px 12px;
+    background: rgba(255, 193, 7, 0.15);
+    border-radius: 20px;
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+}
+
+.moonrise-time-value {
+    color: #2196F3;
+    background: rgba(33, 150, 243, 0.15);
+    text-shadow: 0 0 10px rgba(33, 150, 243, 0.3);
+}
+
+.sunrise-time, .moonrise-time {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.2rem;
+}

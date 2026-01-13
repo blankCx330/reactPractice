@@ -1,16 +1,31 @@
-.right-container{
-    border: 1px solid #fff;
+/* RightContainer.css */
+.right-container {
+    height: 100%;
+    border: 1px solid #ffffff;
     width: 80vw;
 }
 
-.weather-data{
+.weather-data {
     border: 1px solid #ff0000;
-    width: 100%;
     height: 55%;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-.real-time-weather-data{
-    border: 1px solid #0026ff;
+.weather-data-top{
+    display: flex;
+    flex:1;
     width: 100%;
+}
+
+.weather-data-bottom{
+    display: flex;
+    width: 100%
+}
+
+.real-time-weather-data {
+    flex: 1;
+    border: 1px solid #2f00ff;
     height: 45%;
 }

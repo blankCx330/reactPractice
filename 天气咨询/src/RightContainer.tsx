@@ -1,4 +1,6 @@
 import WeatherDataCard from './WeatherDataCard'
+import WindDirectionAndAirData from './WindDirectionAndAirData'
+import SunriseAndMoonriseTimes from './SunriseAndMoonriseTimes'
 
 import './RightContainer.css'
 export default function RightContainer() {
@@ -6,12 +8,16 @@ export default function RightContainer() {
     return(
         <div className='right-container'>
             <div className='weather-data'>
-                <div className='wind-direction-and-air-data'>
-                    <div className='air-quality'>空气质量: <span className='air-quality-index'>1.0</span></div>
-                    <i className="qi-2208"></i>
+                <div className='weather-data-top'>
+                    <WindDirectionAndAirData />
+                    <SunriseAndMoonriseTimes />
                 </div>
-                <div className='sunrise-and-moonrise-times'></div>
-                <WeatherDataCard data={100} />
+                <div className='weather-data-bottom'>
+                    <WeatherDataCard data={100} />
+                    <WeatherDataCard data={100} />
+                    <WeatherDataCard data={100} />
+                    <WeatherDataCard data={100} />
+                </div>
             </div>
             <div className='real-time-weather-data'></div>
         </div>
