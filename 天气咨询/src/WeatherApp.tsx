@@ -15,6 +15,8 @@ export default function WeatherApp() {
     queryFn: hotCitiesFetch
   })
 
+  
+
   type TopCity = {
     name: string;
     id: string;

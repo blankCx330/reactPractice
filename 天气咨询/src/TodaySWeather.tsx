@@ -10,6 +10,7 @@ export default function TodaySWeather() {
                 <i className={'qi-'+ iconDay}></i>
             </div>
             <div className='now-weather-text'>晴</div>
+            <div className='divider'></div>
             <div className='now-date'>1月12日 周一</div>
             <div className='city'>城市</div>
         </div>

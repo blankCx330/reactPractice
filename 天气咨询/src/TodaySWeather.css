@@ -1,69 +1,24 @@
-/* .today-weather{
+ .today-weather {
     width: 95%;
     height: 35%;
     border-radius: 20px;
     background-color: rgb(60, 60, 60);
     display: flex;
     flex-wrap: wrap;
-}
-
-.now-title{
-    display: block;
-    font-weight: 700;
-    font-size: 2rem;
-    margin-left: 20px;
-    width: 100%;
-    height: 10%;
-    border: 1px solid #fff;
-}
-
-
-.temperature{
-    width: 40%;
-    height: 40%;
-    font-weight: 700;
-    font-size: 4rem;
-    margin-left: 5%;
-    display: flex;
-    border: 1px solid #fff;
-}
-
-.celsius-symbol{
-    font-size: 2.5rem;
-    width: 3rem;
-    margin-left: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.now-weather-photo{
-    border: 1px solid #fff;
-    width: 40%;
-    height: 40%;
-} */
- .today-weather {
-    width: 95%;
-    height: 35%;
-    border-radius: 20px;
-    background-color: rgb(60, 60, 60); /* 保留原有深灰背景 */
-    display: flex;
-    flex-wrap: wrap;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* 添加轻微阴影增加层次感 */
-    overflow: hidden; /* 确保圆角不被内部内容溢出遮挡 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
 }
 
 .now-title {
     display: block;
     font-weight: 700;
     font-size: 2rem;
+    margin-top: 10px;
     margin-left: 20px;
     width: 100%;
     height: 10%;
-    /* border: 1px solid #fff;  移除边框，改用背景色区分 */
-    background-color: rgba(255, 255, 255, 0.05); /* 轻微提亮标题区域 */
     display: flex;
-    align-items: center; /* 垂直居中文字 */
+    align-items: center;
 }
 
 .temperature {
@@ -73,10 +28,9 @@
     font-size: 4rem;
     margin-left: 5%;
     display: flex;
-    align-items: flex-start; /* 让数字和符号顶部对齐 */
-    /* border: 1px solid #fff; 移除边框 */
+    align-items: flex-start;
     color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* 添加文字阴影 */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .celsius-symbol {
@@ -86,11 +40,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 10px; /* 微调符号位置，使其视觉上更好看 */
+    margin-top: 10px;
 }
 
 .now-weather-photo {
-    /* border: 1px solid #fff; 移除边框 */
     width: 40%;
     height: 40%;
     display: flex;
@@ -98,38 +51,47 @@
     align-items: center;
 }
 
-/* --- 新增样式：美化其他元素 --- */
+/* --- 修改后的样式 --- */
 
-/* 天气文字 */
+/* 天气文字 - 移到温度下方 */
 .now-weather-text {
-    width: 100%;
-    text-align: center;
-    font-size: 1.2rem;
+    width: 40%;
+    height: 10%;
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 5px;
 }
 
-/* 日期 */
+/* 白线分割 */
+.divider {
+    width: 90%;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+}
+
+/* 日期 - 移到白线下方 */
 .now-date {
     width: 100%;
     text-align: center;
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
+    margin-top: 5px;
 }
 
-/* 城市 */
+/* 城市 - 移到白线下方 */
 .city {
     width: 100%;
     text-align: center;
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.8);
-    margin-top: 5px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* 底部添加分割线 */
+    margin-bottom: 5px;
 }
 
-/* 图标大小控制 */
+/* 图标大小控制 - 增大图标 */
 .now-weather-photo i {
-    font-size: 4rem; /* 调整图标大小以匹配容器 */
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); /* 图标阴影 */
+    font-size: 5rem; /* 增大图标尺寸 */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
