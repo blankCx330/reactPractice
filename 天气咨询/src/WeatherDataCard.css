@@ -1,0 +1,80 @@
+.weather-data-card {
+    /* 保持原有基础样式 */
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(40, 40, 40, 0.9));
+    width: 23%;
+    height: 21vh;
+    color: #ffffff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    
+    /* 视觉美化 */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 15px;
+
+    /* 内部布局优化 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* 悬停效果 */
+.weather-data-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 标题样式 */
+.weather-data-card-header {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: 400;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 卡片内容区域 - 包含图标和数据 */
+.card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+    width: 100%;
+}
+
+/* 图标样式 */
+.weather-data-card i {
+    font-size: 3.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* 数据容器 */
+.data-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* 数值样式 */
+.card-data {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+/* 单位样式 - 位于数值右上角 */
+.card-unit {
+    position: absolute;
+    top: -5px;
+    right: -15px;
+    font-size: 1rem;
+    opacity: 0.7;
+    font-weight: 400;
+}
