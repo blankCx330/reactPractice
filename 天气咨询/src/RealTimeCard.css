@@ -1,0 +1,40 @@
+.real-time-card {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 7%;
+    height: 45%;
+    margin: 5px;
+    border-radius: 5px;
+    background: rgba(60, 60, 60, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 4px;
+    transition: all 0.2s ease;
+}
+
+.real-time-card:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.real-time {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.real-time-temperature {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 4px 0;
+}
+
+.real-time-card i {
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 4px;
+}
