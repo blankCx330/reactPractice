@@ -6,3 +6,27 @@
     justify-content: center;
     align-items: center;
 }
+
+/* 响应式设计 */
+/* 平板设备 */
+@media (max-width: 1024px) {
+    .left-container {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+}
+
+/* 小型平板设备 */
+@media (max-width: 768px) {
+    .left-container {
+        padding: 5px;
+    }
+}
+
+/* 手机设备 */
+@media (max-width: 480px) {
+    .left-container {
+        padding: 3px;
+    }
+}

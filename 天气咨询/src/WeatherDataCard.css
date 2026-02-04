@@ -78,3 +78,81 @@
     opacity: 0.7;
     font-weight: 400;
 }
+
+/* 响应式设计 */
+/* 平板设备 */
+@media (max-width: 1024px) {
+    .weather-data-card {
+        width: 30%;
+        height: 18vh;
+        padding: 12px;
+    }
+
+    .weather-data-card-header {
+        font-size: 0.85rem;
+    }
+
+    .weather-data-card i {
+        font-size: 3rem;
+    }
+
+    .card-data {
+        font-size: 3.5rem;
+    }
+
+    .card-unit {
+        font-size: 0.9rem;
+    }
+}
+
+/* 小型平板设备 */
+@media (max-width: 768px) {
+    .weather-data-card {
+        width: 45%;
+        height: 16vh;
+        padding: 10px;
+    }
+
+    .weather-data-card-header {
+        font-size: 0.8rem;
+    }
+
+    .weather-data-card i {
+        font-size: 2.5rem;
+    }
+
+    .card-data {
+        font-size: 3rem;
+    }
+
+    .card-unit {
+        font-size: 0.85rem;
+    }
+}
+
+/* 手机设备 */
+@media (max-width: 480px) {
+    .weather-data-card {
+        width: 100%;
+        height: auto;
+        min-height: 120px;
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    .weather-data-card-header {
+        font-size: 0.75rem;
+    }
+
+    .weather-data-card i {
+        font-size: 2rem;
+    }
+
+    .card-data {
+        font-size: 2.5rem;
+    }
+
+    .card-unit {
+        font-size: 0.8rem;
+    }
+}

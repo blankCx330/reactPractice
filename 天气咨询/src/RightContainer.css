@@ -8,18 +8,23 @@
     height: 60%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     justify-content: space-around;
-    border: 1px solid #2f00ff;
+    overflow-y: auto; /* 修改为垂直滚动 */
+    overflow-x: hidden; /* 隐藏水平滚动条 */
+    
+    /* 滚动条美化样式 */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #ffffff8a #f0f0f000; /* Firefox: 滑块颜色和轨道颜色 */
 }
 
-.weather-data-top{
+
+.weather-data-top {
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
 
-.weather-data-bottom{
+.weather-data-bottom {
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -27,9 +32,100 @@
 
 .real-time-weather-data {
     flex: 1;
-    border: 1px solid #2f00ff;
     height: 40%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 5px;
+    position: relative; /* 为伪元素定位提供参考 */
+    border-top: none; /* 移除原有的边框 */
+}
+
+.real-time-weather-data::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* 水平居中 */
+    width: 97%; /* 分割线宽度为容器的80% */
+    height: 2px; /* 分割线高度 */
+    background-color: rgba(255, 255, 255, 0.7); /* 使用与原有边框相似的颜色 */
+}
+
+/* 响应式设计 */
+/* 平板设备 */
+@media (max-width: 1024px) {
+    .right-container {
+        width: 100vw;
+        height: auto;
+    }
+    
+    .weather-data {
+        height: auto;
+        padding: 10px;
+    }
+    
+    .weather-data-top, .weather-data-bottom {
+        flex-wrap: wrap;
+    }
+    
+    /* 调整滚动条大小 */
+    .weather-data::-webkit-scrollbar {
+        width: 6px;
+    }
+}
+
+/* 小型平板设备 */
+@media (max-width: 768px) {
+    .right-container {
+        height: auto;
+        padding: 5px;
+    }
+    
+    .weather-data {
+        height: auto;
+    }
+    
+    .weather-data-top, .weather-data-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .real-time-weather-data {
+        height: auto;
+        padding: 10px;
+    }
+    
+    /* 调整滚动条大小 */
+    .weather-data::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+/* 手机设备 */
+@media (max-width: 480px) {
+    .right-container {
+        width: 100vw;
+        padding: 3px;
+    }
+    
+    .weather-data {
+        height: auto;
+        padding: 5px;
+    }
+    
+    .weather-data-top, .weather-data-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .real-time-weather-data {
+        height: auto;
+        padding: 8px;
+    }
+    
+    /* 调整滚动条大小 */
+    .weather-data::-webkit-scrollbar {
+        width: 4px;
+    }
 }

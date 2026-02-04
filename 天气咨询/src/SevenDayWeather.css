@@ -155,3 +155,47 @@
         font-size: 20px;
     }
 }
+
+/* 手机设备 */
+@media (max-width: 480px) {
+    .seven-day-weather {
+        padding: 8px;
+        border-radius: 10px;
+    }
+
+    .seven-day-weather-header {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .seven-day-weather-header-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .seven-day-weather-content {
+        padding: 4px;
+        gap: 4px;
+        max-height: 300px;
+    }
+
+    .seven-day-weather-content-item {
+        padding: 6px 8px;
+        min-height: 30px;
+    }
+
+    .seven-day-weather-date {
+        font-size: 11px;
+        min-width: 60px;
+    }
+
+    .one-day-weather {
+        font-size: 11px;
+        margin-left: 8px;
+        max-width: 60px;
+    }
+
+    .qi-100 {
+        font-size: 18px;
+    }
+}

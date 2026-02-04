@@ -25,7 +25,7 @@
     width: 40%;
     height: 40%;
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 4vw;
     margin-left: 5%;
     display: flex;
     align-items: flex-start;
@@ -34,7 +34,7 @@
 }
 
 .celsius-symbol {
-    font-size: 2.5rem;
+    font-size: 2.5vw;
     width: 3rem;
     margin-left: 5px;
     display: flex;
@@ -92,6 +92,123 @@
 
 /* 图标大小控制 - 增大图标 */
 .now-weather-photo i {
-    font-size: 5rem; /* 增大图标尺寸 */
+    font-size: 10vh; /* 增大图标尺寸 */
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* 响应式设计 */
+/* 平板设备 */
+@media (max-width: 1024px) {
+    .today-weather {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        padding: 10px;
+    }
+
+    .now-title {
+        font-size: 1.8rem;
+        margin-left: 15px;
+    }
+
+    .temperature {
+        width: 45%;
+        font-size: 3.5rem;
+    }
+
+    .celsius-symbol {
+        font-size: 2rem;
+    }
+
+    .now-weather-photo {
+        width: 45%;
+    }
+
+    .now-weather-photo i {
+        font-size: 4.5rem;
+    }
+
+    .now-weather-text {
+        font-size: 1.4rem;
+    }
+
+    .now-date, .city {
+        font-size: 0.85rem;
+    }
+}
+
+/* 小型平板设备 */
+@media (max-width: 768px) {
+    .today-weather {
+        min-height: 250px;
+        padding: 8px;
+    }
+
+    .now-title {
+        font-size: 1.5rem;
+        margin-left: 10px;
+    }
+
+    .temperature {
+        width: 50%;
+        font-size: 3rem;
+    }
+
+    .celsius-symbol {
+        font-size: 1.8rem;
+    }
+
+    .now-weather-photo {
+        width: 50%;
+    }
+
+    .now-weather-photo i {
+        font-size: 4rem;
+    }
+
+    .now-weather-text {
+        font-size: 1.2rem;
+    }
+
+    .now-date, .city {
+        font-size: 0.8rem;
+    }
+}
+
+/* 手机设备 */
+@media (max-width: 480px) {
+    .today-weather {
+        min-height: 200px;
+        padding: 5px;
+    }
+
+    .now-title {
+        font-size: 1.2rem;
+        margin-left: 8px;
+    }
+
+    .temperature {
+        width: 50%;
+        font-size: 2.5rem;
+    }
+
+    .celsius-symbol {
+        font-size: 1.5rem;
+    }
+
+    .now-weather-photo {
+        width: 50%;
+    }
+
+    .now-weather-photo i {
+        font-size: 3.5rem;
+    }
+
+    .now-weather-text {
+        font-size: 1rem;
+    }
+
+    .now-date, .city {
+        font-size: 0.75rem;
+    }
 }

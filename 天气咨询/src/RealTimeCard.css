@@ -21,20 +21,84 @@
 
 .real-time {
     color: #ffffff;
-    font-size: 12px;
+    font-size: 1rem;
     font-weight: 400;
     margin-bottom: 4px;
 }
 
 .real-time-temperature {
     color: #ffffff;
-    font-size: 14px;
+    font-size: 1.2rem;
     font-weight: 500;
-    margin: 4px 0;
 }
 
 .real-time-card i {
-    font-size: 20px;
+    font-size: 5vh;
     color: #ffffff;
-    margin-top: 4px;
+}
+
+
+/* 响应式设计 */
+/* 平板设备 */
+@media (max-width: 1024px) {
+    .real-time-card {
+        width: 9%;
+        margin: 4px;
+        padding: 6px 3px;
+    }
+    
+    .real-time {
+        font-size: 0.9rem;
+    }
+    
+    .real-time-temperature {
+        font-size: 1.1rem;
+    }
+    
+    .real-time-card i {
+        font-size: 4vh;
+    }
+}
+
+/* 小型平板设备 */
+@media (max-width: 768px) {
+    .real-time-card {
+        width: 12%;
+        margin: 3px;
+        padding: 5px 2px;
+    }
+    
+    .real-time {
+        font-size: 0.8rem;
+    }
+    
+    .real-time-temperature {
+        font-size: 1rem;
+    }
+    
+    .real-time-card i {
+        font-size: 3.5vh;
+    }
+}
+
+/* 手机设备 */
+@media (max-width: 480px) {
+    .real-time-card {
+        width: 16%;
+        height: 40%;
+        margin: 2px;
+        padding: 4px 2px;
+    }
+    
+    .real-time {
+        font-size: 0.7rem;
+    }
+    
+    .real-time-temperature {
+        font-size: 0.9rem;
+    }
+    
+    .real-time-card i {
+        font-size: 3vh;
+    }
 }
