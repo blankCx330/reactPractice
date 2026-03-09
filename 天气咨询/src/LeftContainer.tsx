@@ -1,12 +1,14 @@
 import TodaySWeather from './TodaySWeather'
 import SevenDayWeather from './SevenDayWeather'
 
-import './LeftContainer.css'
-export default function LeftContainer() {
+import './css/LeftContainer.css'
+
+import type { WeatherNowResponse, CityLookupResponse } from './types/qweather'
+export default function LeftContainer({useWeather, nowCityData}:{useWeather?: WeatherNowResponse | null, nowCityData?: CityLookupResponse | null}) {
     
     return (
         <div className="left-container">
-            <TodaySWeather />
+            <TodaySWeather useWeather={useWeather} nowCityData={nowCityData}/>
             <SevenDayWeather />
         </div>
     )

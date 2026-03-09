@@ -1,7 +1,7 @@
 import WeatherApp from './WeatherApp';
 
-import './App.css'
-import './WeatherApp.css'
+import './css/App.css'
+import './css/WeatherApp.css'
 
 function App() {
   

@@ -1,4 +1,4 @@
-import './RealTimeCard.css'
+import './css/RealTimeCard.css'
 
 export default function RealTimeCard({time, iconCode}: {time: string, iconCode: number}) {
     

@@ -1,4 +1,4 @@
-import './SunriseAndMoonriseTimes.css'
+import './css/SunriseAndMoonriseTimes.css'
 export default function SunriseAndMoonriseTimes() {
         const moonIconCode = 801
   return(

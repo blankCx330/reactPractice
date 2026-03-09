@@ -1,4 +1,4 @@
-import './WeatherDataCard.css'
+import './css/WeatherDataCard.css'
 export default function WeatherDataCard({ data, title, iconCode, unit }: { data: any, title: string, iconCode: number, unit: string}) {
   return (
     <div className='weather-data-card'>

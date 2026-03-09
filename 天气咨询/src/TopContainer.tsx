@@ -1,12 +1,9 @@
-import './topContainer.css'
+import './css/topContainer.css'
 import logo from './assets/logo.png'
 import Search from './iconSVG/Search'
 import MapPositioningSVG from './iconSVG/MapPositioningSVG'
-type TopCity = {
-    name: string;
-    id: string;
-  }
-export default function TopContainer({topCityList = []}: {topCityList: TopCity[]}) {
+import type { TopCityResponse } from './types/qweather'
+export default function TopContainer({topCityList}: {topCityList: TopCityResponse['topCityList']}) {
     const cityList = topCityList.map(city => {
         return <option key={city.id} value={city.name} />
     })

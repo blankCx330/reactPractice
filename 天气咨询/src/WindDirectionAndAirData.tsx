@@ -1,4 +1,4 @@
-import './WindDirectionAndAirData.css'
+import './css/WindDirectionAndAirData.css'
 export default function WindDirectionAndAirData() {
     return (
         <div className='wind-direction-and-air-data'>

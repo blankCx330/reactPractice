@@ -1,4 +1,4 @@
-import './SevenDayWeather.css'
+import './css/SevenDayWeather.css'
 export default function SevenDayWeather() {
     const iconCode = 100
 
