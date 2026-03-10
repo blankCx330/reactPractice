@@ -159,3 +159,45 @@ export interface UserLocation {
   /** 经度 */
   lon: number
 }
+
+/**
+ * POI搜索响应
+ * API: /geo/v2/poi/lookup
+ * 文档: https://dev.qweather.com/docs/api/geoapi/poi-lookup/
+ */
+export interface PoiLookupResponse extends QWeatherBaseResponse {
+  /** POI（兴趣点）列表 */
+  poi: Poi[]
+}
+
+/**
+ * POI（兴趣点）数据
+ */
+export interface Poi {
+  /** POI名称 */
+  name: string
+  /** POI ID */
+  id: string
+  /** POI纬度 */
+  lat: number
+  /** POI经度 */
+  lon: number
+  /** POI的上级行政区划名称 */
+  adm2: string
+  /** POI所属一级行政区域 */
+  adm1: string
+  /** POI所属国家名称 */
+  country: string
+  /** POI所在时区 */
+  tz: string
+  /** POI目前与UTC时间偏移的小时数 */
+  utcOffset: string
+  /** POI是否当前处于夏令时。1表示当前处于夏令时，0表示当前不是夏令时 */
+  isDst: string
+  /** POI的属性 */
+  type: string
+  /** 地区评分 */
+  rank: string
+  /** 该地区的天气预报网页链接，便于嵌入你的网站或应用 */
+  fxLink: string
+}

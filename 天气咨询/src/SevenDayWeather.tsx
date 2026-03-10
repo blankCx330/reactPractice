@@ -1,7 +1,8 @@
 import './css/SevenDayWeather.css'
-export default function SevenDayWeather() {
+import type {WeatherNowResponse} from './types/qweather.ts'
+export default function SevenDayWeather({useWeather}: {useWeather?: WeatherNowResponse | null } ) {
     const iconCode = 100
-
+    console.log('七日组件', useWeather)//只有一天的数据，记住解决
     return(
         <div className="seven-day-weather">
             <div className="seven-day-weather-header">

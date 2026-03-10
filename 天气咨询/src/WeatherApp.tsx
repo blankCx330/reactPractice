@@ -2,7 +2,7 @@ import TopContainer from "./TopContainer"
 import LeftContainer from "./LeftContainer"
 import RightContainer from "./RightContainer"
 import { useQuery } from "@tanstack/react-query"
-import { useState } from "react"
+import { useState, useEffect} from "react"
 import type { WeatherNowResponse, TopCityResponse, UserLocation, CityLookupResponse} from "./types/qweather"
 
 export default function WeatherApp() {
@@ -51,42 +51,50 @@ export default function WeatherApp() {
     })
   }
   const { data: userLocation } = useUserLocation()
-  const [lon, setLon] = useState(userLocation?.lon ?? 0)
-  const [lat, setLat] = useState(userLocation?.lat ?? 0)
+  const [lon, setLon] = useState(userLocation?.lon ?? 39)
+  const [lat, setLat] = useState(userLocation?.lat ?? 116)
+  useEffect(() => {
+    if (userLocation) {
+      setLon(userLocation.lon)
+      setLat(userLocation.lat)
+    }
+  }, [userLocation])
   const setLocation = (lon: number, lat: number) => {
     setLon(lon)
     setLat(lat)
   }
   console.log("用户位置", userLocation)
 
-  //当前位置的天气数据
-  const weatherUrl = userLocation 
-    ? `https://${apiHost}/v7/weather/now?location=${userLocation.lon},${userLocation.lat}&key=${apiKey}`
-    : null
-
   //用于搜索天气位置的输入框
-    const searchUrl = `https://${apiHost}/geo/v2/city/lookup?location=${lon},${lat}&key=${apiKey}`
     const {data: searchCity} = useQuery<CityLookupResponse | null>({
       queryKey: ['searchCity', lon, lat],// 将经纬度作为查询键的一部分，以便在位置变化时重新获取数据
-      queryFn: async () => fetch(searchUrl).then(res => res.json())
+      queryFn: async () => {
+        const searchUrl = `https://${apiHost}/geo/v2/city/lookup?location=${lon},${lat}&key=${apiKey}`
+        return fetch(searchUrl).then(res => res.json())
+      },
+      enabled: lon !== null && lat !== null // 只有当经纬度都不为null时才启用查询
     })
   const nowCityData = searchCity;
 
-  const getWeather = async (): Promise<WeatherNowResponse | null> => {
-    if (!weatherUrl) return null
-    return fetch(weatherUrl).then(res => res.json())
-  }
   const { data: useWeather } = useQuery<WeatherNowResponse | null>({
-    queryKey: ['weather', userLocation],
-    queryFn: getWeather,
-    enabled: !!userLocation, // 只有在用户位置获取成功后才执行查询
+    queryKey: ['weather', lon, lat], // 将经纬度作为查询键的一部分，以便在位置变化时重新获取数据
+    queryFn: async () => {
+    const weatherUrl = `https://${apiHost}/v7/weather/now?location=${lon},${lat}&key=${apiKey}`
+      if (!weatherUrl) 
+        return null
+      return fetch(weatherUrl).then(res => res.json())
+    }
   })
   console.log("当前位置的天气数据", useWeather)
 
 
   return (
     <div className="weather-app">
-      <TopContainer topCityList={topCityList} />
+      <TopContainer 
+        topCityList={topCityList} 
+        onLocationChange={setLocation} 
+        userLocation={userLocation}
+      />
       <LeftContainer useWeather={useWeather} nowCityData={nowCityData} />
       <RightContainer />
     </div>

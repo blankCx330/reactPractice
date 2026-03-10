@@ -9,7 +9,7 @@ export default function LeftContainer({useWeather, nowCityData}:{useWeather?: We
     return (
         <div className="left-container">
             <TodaySWeather useWeather={useWeather} nowCityData={nowCityData}/>
-            <SevenDayWeather />
+            <SevenDayWeather useWeather={useWeather}/>
         </div>
     )
 }

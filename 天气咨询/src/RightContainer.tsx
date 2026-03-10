@@ -6,7 +6,7 @@ import RealTimeCard from './RealTimeCard'
 import './css/RightContainer.css'
 export default function RightContainer() {
     const a = ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24'];
-    const list = a.map((num) => <RealTimeCard time={num} iconCode={100}/>)
+    const list = a.map((num) => <RealTimeCard key={num} time={num} iconCode={100}/>)
     
     return(
         <div className='right-container'>
