@@ -1,7 +1,7 @@
 .real-time-card {
     border: 1px solid rgba(255, 255, 255, 0.15);
     width: 7%;
-    height: 45%;
+    height: auto;
     margin: 5px;
     border-radius: 5px;
     background: rgba(60, 60, 60, 0.9);
@@ -12,6 +12,12 @@
     justify-content: space-between;
     padding: 8px 4px;
     transition: all 0.2s ease;
+    min-width: 70px;
+    min-height: 120px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    contain: content;
 }
 
 .real-time-card:hover {
@@ -21,19 +27,28 @@
 
 .real-time {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: clamp(0.7rem, 1rem, 1rem);
     font-weight: 400;
     margin-bottom: 4px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .real-time-temperature {
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: clamp(0.8rem, 1.2rem, 1.2rem);
     font-weight: 500;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .real-time-card i {
-    font-size: 5vh;
+    font-size: clamp(24px, 4vh, 40px); /* Min: 24px, Preferred: 4vh, Max: 40px */
+    max-width: 80%; /* Prevent icon from exceeding container */
     color: #ffffff;
 }
 
@@ -56,7 +71,7 @@
     }
     
     .real-time-card i {
-        font-size: 4vh;
+        font-size: clamp(20px, 3.5vh, 35px);
     }
 }
 
@@ -77,7 +92,7 @@
     }
     
     .real-time-card i {
-        font-size: 3.5vh;
+        font-size: clamp(18px, 3vh, 30px);
     }
 }
 
@@ -99,6 +114,6 @@
     }
     
     .real-time-card i {
-        font-size: 3vh;
+        font-size: clamp(16px, 2.5vh, 28px);
     }
 }

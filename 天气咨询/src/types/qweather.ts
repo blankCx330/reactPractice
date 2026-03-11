@@ -275,3 +275,186 @@ export interface WeatherDaily {
   /** 紫外线强度指数 */
   uvIndex: string
 }
+
+/**
+ * 格点逐小时天气预报响应
+ * API: /v7/grid-weather/24h
+ * 文档: https://dev.qweather.com/docs/api/weather/grid-weather-hourly-forecast/
+ */
+export interface GridWeatherHourlyResponse extends QWeatherBaseResponse {
+  /** 当前 API 的最近更新时间 */
+  updateTime: string
+  /** 当前数据的响应式页面，便于嵌入网站或应用 */
+  fxLink: string
+  /** 格点逐小时天气预报数据 */
+  hourly: GridWeatherHourly[]
+}
+
+/**
+ * 格点逐小时天气预报数据
+ */
+export interface GridWeatherHourly {
+  /** 预报时间 */
+  fxTime: string
+  /** 温度，默认单位：摄氏度 */
+  temp: string
+  /** 天气状况的图标代码 */
+  icon: string
+  /** 天气状况的文字描述 */
+  text: string
+  /** 风向360角度 */
+  wind360: string
+  /** 风向 */
+  windDir: string
+  /** 风力等级 */
+  windScale: string
+  /** 风速，公里/小时 */
+  windSpeed: string
+  /** 相对湿度，百分比数值 */
+  humidity: string
+  /** 当前小时累计降水量，默认单位：毫米 */
+  precip: string
+  /** 大气压强，默认单位：百帕 */
+  pressure: string
+  /** 云量，百分比数值，可能为空 */
+  cloud?: string
+  /** 露点温度，可能为空 */
+  dew?: string
+}
+
+/**
+ * 实时空气质量响应
+ * API: /airquality/v1/current/{lat}/{lon}
+ * 文档: https://dev.qweather.com/docs/api/air-quality/air-current/
+ */
+export interface AirQualityCurrentResponse {
+  /** 元数据 */
+  metadata: AirQualityMetadata
+  /** 空气质量指数数组 */
+  indexes: AirQualityIndex[]
+  /** 污染物数组 */
+  pollutants: AirPollutant[]
+  /** 监测站数组，可能为空 */
+  stations?: AirQualityStation[]
+}
+
+/**
+ * 空气质量元数据
+ */
+export interface AirQualityMetadata {
+  /** 数据标签 */
+  tag: string
+}
+
+/**
+ * 空气质量指数
+ */
+export interface AirQualityIndex {
+  /** 空气质量指数Code，参考 https://dev.qweather.com/docs/resource/air-info/#supported-aqis */
+  code: string
+  /** 空气质量指数的名字 */
+  name: string
+  /** 空气质量指数的值 */
+  aqi: number
+  /** 空气质量指数的值的文本显示 */
+  aqiDisplay: string
+  /** 空气质量指数等级，可能为空 */
+  level?: string
+  /** 空气质量指数类别，可能为空 */
+  category?: string
+  /** 空气质量指数的颜色 */
+  color: AirQualityColor
+  /** 首要污染物，可能为空 */
+  primaryPollutant?: AirQualityPrimaryPollutant
+  /** 健康建议，可能为空 */
+  health?: AirQualityHealth
+}
+
+/**
+ * 空气质量颜色 (RGBA)
+ */
+export interface AirQualityColor {
+  /** 红色分量 */
+  red: number
+  /** 绿色分量 */
+  green: number
+  /** 蓝色分量 */
+  blue: number
+  /** 透明度 */
+  alpha: number
+}
+
+/**
+ * 首要污染物
+ */
+export interface AirQualityPrimaryPollutant {
+  /** 首要污染物的Code */
+  code: string
+  /** 首要污染物的名字 */
+  name: string
+  /** 首要污染物的全称 */
+  fullName: string
+}
+
+/**
+ * 健康建议
+ */
+export interface AirQualityHealth {
+  /** 空气质量对健康的影响 */
+  effect?: string
+  /** 健康指导意见 */
+  advice?: {
+    /** 对一般人群的健康指导意见 */
+    generalPopulation?: string
+    /** 对敏感人群的健康指导意见 */
+    sensitivePopulation?: string
+  }
+}
+
+/**
+ * 污染物
+ */
+export interface AirPollutant {
+  /** 污染物的Code */
+  code: string
+  /** 污染物的名字 */
+  name: string
+  /** 污染物的全称 */
+  fullName: string
+  /** 污染物的浓度 */
+  concentration: AirPollutantConcentration
+  /** 污染物的分指数数组，可能为空 */
+  subIndexes?: AirPollutantSubIndex[]
+}
+
+/**
+ * 污染物浓度
+ */
+export interface AirPollutantConcentration {
+  /** 污染物的浓度值 */
+  value: number
+  /** 污染物的浓度值的单位 */
+  unit: string
+}
+
+/**
+ * 污染物分指数
+ */
+export interface AirPollutantSubIndex {
+  /** 污染物的分指数的Code */
+  code: string
+  /** 污染物的分指数的数值 */
+  aqi: number
+  /** 污染物的分指数数值的显示名称 */
+  aqiDisplay: string
+}
+
+/**
+ * 空气质量监测站
+ */
+export interface AirQualityStation {
+  /** 监测站Location ID */
+  id: string
+  /** 监测站名称 */
+  name: string
+}

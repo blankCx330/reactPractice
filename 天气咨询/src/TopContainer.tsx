@@ -35,6 +35,9 @@ export default function TopContainer({topCityList, userLocation, onLocationChang
         if(e.key === 'Enter')
             setCityLocation()
     }
+    const handleBlur = () => {
+        setTimeout(() => setShowSuggestions(false), 100)
+    }
 
     // 移除
     // const cityList = topCityList.map(city => {
@@ -52,13 +55,14 @@ export default function TopContainer({topCityList, userLocation, onLocationChang
                     list='city-list' 
                     placeholder='输入城市'
                     value={inputCityName}
-                    onClick={() => setInputCityName('')}
+                    // onClick={() => setInputCityName('')}
                     onKeyDown={(e) => onKeyDown(e)}
                     onChange={(e) => {
                         setInputCityName(e.target.value)
                         setShowSuggestions(true)
                     }}
                     onFocus={() => setShowSuggestions(true)}
+                    onBlur={handleBlur}
                 />
                 {showSuggestions && getCityLocation?.poi?.length && (
                     <div className='suggestions-list'>

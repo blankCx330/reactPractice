@@ -3,7 +3,7 @@ import LeftContainer from "./LeftContainer"
 import RightContainer from "./RightContainer"
 import { useQuery } from "@tanstack/react-query"
 import { useState, useEffect} from "react"
-import type { WeatherNowResponse, TopCityResponse, UserLocation, CityLookupResponse} from "./types/qweather"
+import type { WeatherNowResponse, TopCityResponse, UserLocation, CityLookupResponse, WeatherDailyResponse} from "./types/qweather"
 
 export default function WeatherApp() {
   const apiHost = import.meta.env.VITE_API_HOST
@@ -51,8 +51,8 @@ export default function WeatherApp() {
     })
   }
   const { data: userLocation } = useUserLocation()
-  const [lon, setLon] = useState(userLocation?.lon ?? 39)
-  const [lat, setLat] = useState(userLocation?.lat ?? 116)
+  const [lon, setLon] = useState(userLocation?.lon ?? 116)
+  const [lat, setLat] = useState(userLocation?.lat ?? 39)
   useEffect(() => {
     if (userLocation) {
       setLon(userLocation.lon)
@@ -87,6 +87,15 @@ export default function WeatherApp() {
   })
   console.log("当前位置的天气数据", useWeather)
 
+      const {data: sevenWeather} = useQuery<WeatherDailyResponse>({
+        queryKey: ['sevenWeather', lon, lat],
+        queryFn: async () => {
+            const sevenWeatherUrl = `https://${apiHost}/v7/weather/7d?location=${lon},${lat}&key=${apiKey}`
+            return fetch(sevenWeatherUrl).then(res => res.json())
+        },
+        enabled: !!lon && !!lat
+    })
+
 
   return (
     <div className="weather-app">
@@ -95,8 +104,8 @@ export default function WeatherApp() {
         onLocationChange={setLocation} 
         userLocation={userLocation}
       />
-      <LeftContainer useWeather={useWeather} nowCityData={nowCityData} lon={lon} lat={lat} />
-      <RightContainer />
+      <LeftContainer useWeather={useWeather} nowCityData={nowCityData} sevenWeather={sevenWeather} />
+      <RightContainer sevenWeather={sevenWeather} lon={lon} lat={lat} />
     </div>
   )
 }

@@ -1,18 +1,6 @@
 import './css/SevenDayWeather.css'
-import type {CityLookupResponse, WeatherDailyResponse} from './types/qweather.ts'
-import { useQuery } from '@tanstack/react-query'
-export default function SevenDayWeather({nowCityData, lon, lat}:{nowCityData?: CityLookupResponse | null, lon:number, lat:number}) {
-    const apiHost = import.meta.env.VITE_API_HOST
-    const apiKey = import.meta.env.VITE_API_KEY
-
-    const {data: sevenWeather} = useQuery<WeatherDailyResponse>({
-        queryKey: ['sevenWeather', lon, lat],
-        queryFn: async () => {
-            const sevenWeatherUrl = `https://${apiHost}/v7/weather/7d?location=${lon},${lat}&key=${apiKey}`
-            return fetch(sevenWeatherUrl).then(res => res.json())
-        },
-        enabled: !!lon && !!lat
-    })
+import type {WeatherDailyResponse} from './types/qweather.ts'
+export default function SevenDayWeather({sevenWeather}:{sevenWeather?: WeatherDailyResponse | undefined}) {
     console.log('七日数组',sevenWeather?.daily)
 
     return(
