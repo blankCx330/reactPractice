@@ -201,3 +201,77 @@ export interface Poi {
   /** 该地区的天气预报网页链接，便于嵌入你的网站或应用 */
   fxLink: string
 }
+
+/**
+ * 每日天气预报响应
+ * API: /v7/weather/7d
+ * 文档: https://dev.qweather.com/docs/api/weather/weather-daily-forecast/
+ */
+export interface WeatherDailyResponse extends QWeatherBaseResponse {
+  /** 当前 API 的最近更新时间 */
+  updateTime: string
+  /** 当前数据的响应式页面，便于嵌入网站或应用 */
+  fxLink: string
+  /** 每日天气预报数据 */
+  daily: WeatherDaily[]
+}
+
+/**
+ * 每日天气预报数据
+ */
+export interface WeatherDaily {
+  /** 预报日期 */
+  fxDate: string
+  /** 日出时间，在高纬度地区可能为空 */
+  sunrise?: string
+  /** 日落时间，在高纬度地区可能为空 */
+  sunset?: string
+  /** 当天月升时间，可能为空 */
+  moonrise?: string
+  /** 当天月落时间，可能为空 */
+  moonset?: string
+  /** 月相名称 */
+  moonPhase: string
+  /** 月相图标代码 */
+  moonPhaseIcon: string
+  /** 预报当天最高温度 */
+  tempMax: string
+  /** 预报当天最低温度 */
+  tempMin: string
+  /** 预报白天天气状况的图标代码 */
+  iconDay: string
+  /** 预报白天天气状况文字描述 */
+  textDay: string
+  /** 预报夜间天气状况的图标代码 */
+  iconNight: string
+  /** 预报晚间天气状况文字描述 */
+  textNight: string
+  /** 预报白天风向360角度 */
+  wind360Day: string
+  /** 预报白天风向 */
+  windDirDay: string
+  /** 预报白天风力等级 */
+  windScaleDay: string
+  /** 预报白天风速，公里/小时 */
+  windSpeedDay: string
+  /** 预报夜间风向360角度 */
+  wind360Night: string
+  /** 预报夜间风向 */
+  windDirNight: string
+  /** 预报夜间风力等级 */
+  windScaleNight: string
+  /** 预报夜间风速，公里/小时 */
+  windSpeedNight: string
+  /** 相对湿度，百分比数值 */
+  humidity: string
+  /** 预报当天总降水量，默认单位：毫米 */
+  precip: string
+  /** 大气压强，默认单位：百帕 */
+  pressure: string
+  /** 能见度，默认单位：公里 */
+  vis: string
+  /** 云量，百分比数值，可能为空 */
+  cloud?: string
+  /** 紫外线强度指数 */
+  uvIndex: string
+}

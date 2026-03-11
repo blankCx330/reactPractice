@@ -64,7 +64,7 @@
 
 /* 日期显示 */
 .seven-day-weather-date {
-    font-size: 14px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.9);
     min-width: 90px;
     flex-shrink: 0; /* 防止日期被压缩 */
@@ -72,7 +72,7 @@
 
 /* 天气描述 */
 .one-day-weather {
-    font-size: 14px;
+    font-size: 16px;
     color: rgba(255, 255, 255, 0.9);
     margin-right: auto;
     margin-left: 15px;
@@ -81,13 +81,15 @@
     overflow: hidden; /* 防止天气描述溢出 */
     text-overflow: ellipsis; /* 超出部分显示省略号 */
     max-width: 120px; /* 限制最大宽度 */
+    min-width: 2em;
 }
 
 /* 天气图标 */
-.qi-100 {
-    font-size: 24px;
+.seven-day-weather-content-item > i{
+    font-size: 30px;
     color: rgba(255, 255, 255, 0.9);
     flex-shrink: 0; /* 防止图标被压缩 */
+
 }
 
 /* 第一天（今天）的特殊样式 */

@@ -95,7 +95,7 @@ export default function WeatherApp() {
         onLocationChange={setLocation} 
         userLocation={userLocation}
       />
-      <LeftContainer useWeather={useWeather} nowCityData={nowCityData} />
+      <LeftContainer useWeather={useWeather} nowCityData={nowCityData} lon={lon} lat={lat} />
       <RightContainer />
     </div>
   )

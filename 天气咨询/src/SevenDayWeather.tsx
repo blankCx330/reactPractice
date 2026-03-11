@@ -1,8 +1,20 @@
 import './css/SevenDayWeather.css'
-import type {WeatherNowResponse} from './types/qweather.ts'
-export default function SevenDayWeather({useWeather}: {useWeather?: WeatherNowResponse | null } ) {
-    const iconCode = 100
-    console.log('七日组件', useWeather)//只有一天的数据，记住解决
+import type {CityLookupResponse, WeatherDailyResponse} from './types/qweather.ts'
+import { useQuery } from '@tanstack/react-query'
+export default function SevenDayWeather({nowCityData, lon, lat}:{nowCityData?: CityLookupResponse | null, lon:number, lat:number}) {
+    const apiHost = import.meta.env.VITE_API_HOST
+    const apiKey = import.meta.env.VITE_API_KEY
+
+    const {data: sevenWeather} = useQuery<WeatherDailyResponse>({
+        queryKey: ['sevenWeather', lon, lat],
+        queryFn: async () => {
+            const sevenWeatherUrl = `https://${apiHost}/v7/weather/7d?location=${lon},${lat}&key=${apiKey}`
+            return fetch(sevenWeatherUrl).then(res => res.json())
+        },
+        enabled: !!lon && !!lat
+    })
+    console.log('七日数组',sevenWeather?.daily)
+
     return(
         <div className="seven-day-weather">
             <div className="seven-day-weather-header">
@@ -13,41 +25,15 @@ export default function SevenDayWeather({useWeather}: {useWeather?: WeatherNowRe
             7日天气预报</div>
             
             <div className="seven-day-weather-content">
-                <div className="seven-day-weather-content-item">
-                    <div className='seven-day-weather-date'>2026/1/13 周一</div>
-                    <div className='one-day-weather'>天气</div>
-                    <i className={'qi-'+ iconCode}></i>
-                </div>
-                <div className="seven-day-weather-content-item">
-                    <div className='seven-day-weather-date'>2026/1/13 周一</div>
-                    <div className='one-day-weather'>天气</div>
-                    <i className={'qi-'+ iconCode}></i>
-                </div>
-                <div className="seven-day-weather-content-item">
-                    <div className='seven-day-weather-date'>2026/1/13 周一</div>
-                    <div className='one-day-weather'>天气</div>
-                    <i className={'qi-'+ iconCode}></i>
-                </div>
-                <div className="seven-day-weather-content-item">
-                    <div className='seven-day-weather-date'>2026/1/13 周一</div>
-                    <div className='one-day-weather'>天气</div>
-                    <i className={'qi-'+ iconCode}></i>
-                </div>
-                <div className="seven-day-weather-content-item">
-                    <div className='seven-day-weather-date'>2026/1/13 周一</div>
-                    <div className='one-day-weather'>天气</div>
-                    <i className={'qi-'+ iconCode}></i>
-                </div>
-                <div className="seven-day-weather-content-item">
-                    <div className='seven-day-weather-date'>2026/1/13 周一</div>
-                    <div className='one-day-weather'>天气</div>
-                    <i className={'qi-'+ iconCode}></i>
-                </div>
-                <div className="seven-day-weather-content-item">
-                    <div className='seven-day-weather-date'>2026/1/13 周一</div>
-                    <div className='one-day-weather'>天气</div>
-                    <i className={'qi-'+ iconCode}></i>
-                </div>
+                {sevenWeather && ( sevenWeather.daily.map(data => 
+                    <div className="seven-day-weather-content-item">
+                        <div className='seven-day-weather-date'>{data.fxDate}</div>
+                        <div className='one-day-weather'>{data.textDay}</div>
+                        <div className='one-day-weather'> {data.tempMin}℃-{data.tempMax}℃</div>
+                        <i className={'qi-'+ data.iconDay}></i>
+                    </div>
+                    )
+                )}
             </div>
         </div>
     )
