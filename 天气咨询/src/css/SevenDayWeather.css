@@ -123,84 +123,84 @@
 }
 
 /* 响应式设计 */
+/* 小型平板设备 */
 @media (max-width: 768px) {
     .seven-day-weather {
         height: auto;
-        padding: 12px;
-        border-radius: 12px;
+        padding: 15px;
+        border-radius: 14px;
     }
     
     .seven-day-weather-header {
-        font-size: 14px;
-        padding: 10px 12px;
+        font-size: 15px;
+        padding: 12px;
     }
     
     .seven-day-weather-content {
-        padding: 6px;
-        gap: 5px;
+        padding: 8px;
+        gap: 6px;
         height: auto;
-        max-height: 350px;
+        max-height: 380px;
     }
     
     .seven-day-weather-content-item {
-        padding: 8px 10px;
-        min-height: 35px;
+        padding: 10px 12px;
+        min-height: 38px;
     }
     
     .seven-day-weather-date {
-        font-size: 12px;
-        min-width: 75px;
+        font-size: 14px;
+        min-width: 80px;
     }
     
     .one-day-weather {
-        font-size: 12px;
+        font-size: 14px;
         margin-left: 12px;
-        max-width: 80px; /* 在小屏幕上进一步限制宽度 */
+        max-width: 90px;
     }
     
     .qi-100 {
-        font-size: 20px;
+        font-size: 22px;
     }
 }
 
 /* 手机设备 */
 @media (max-width: 480px) {
     .seven-day-weather {
-        padding: 8px;
-        border-radius: 10px;
+        padding: 12px;
+        border-radius: 12px;
         height: auto;
-        min-height: 180px; /* 确保至少显示3天数据 */
-        max-height: 280px;
+        min-height: 200px;
+        max-height: 320px;
         overflow: hidden;
     }
 
     .seven-day-weather-header {
-        font-size: 12px;
-        padding: 8px 10px;
+        font-size: 14px;
+        padding: 10px 12px;
     }
 
     .seven-day-weather-header-icon {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
     }
 
     .seven-day-weather-content {
-        padding: 4px;
-        gap: 4px;
-        min-height: 120px; /* 最小高度确保3天可见 */
-        max-height: 220px;
+        padding: 6px;
+        gap: 6px;
+        min-height: 140px;
+        max-height: 260px;
         height: auto;
-        overflow-y: auto !important; /* 强制显示滚动条 */
+        overflow-y: auto !important;
         overflow-x: hidden;
-        /* 滚动条样式 */
         scrollbar-width: thin;
         scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
-        -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
+        -webkit-overflow-scrolling: touch;
     }
 
     .seven-day-weather-content::-webkit-scrollbar {
         width: 6px;
-        display: block; /* 确保显示 */
+        display: block;
     }
 
     .seven-day-weather-content::-webkit-scrollbar-track {
@@ -214,22 +214,22 @@
     }
 
     .seven-day-weather-content-item {
-        padding: 6px 8px;
-        min-height: 32px;
+        padding: 8px 10px;
+        min-height: 38px;
     }
 
     .seven-day-weather-date {
-        font-size: 11px;
-        min-width: 60px;
+        font-size: 13px;
+        min-width: 70px;
     }
 
     .one-day-weather {
-        font-size: 11px;
-        margin-left: 8px;
-        max-width: 60px;
+        font-size: 13px;
+        margin-left: 10px;
+        max-width: 70px;
     }
 
     .qi-100 {
-        font-size: 18px;
+        font-size: 20px;
     }
 }

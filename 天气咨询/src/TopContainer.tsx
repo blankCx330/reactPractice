@@ -87,15 +87,13 @@ export default function TopContainer({topCityList, userLocation, onLocationChang
                     {cityList}
                 </datalist> */}
             </div>
-            <div className='positioning-div'>
-                <MapPositioningSVG />
-                <button 
-                    className='positioning-btn'
+            <div className='positioning-div'
                     onClick={()=>{
                         onLocationChange(userLocation.lon, userLocation.lat)
                         setInputCityName('')
-                    }}
-                >定位当前位置</button>
+                    }}>
+                <MapPositioningSVG />
+                <button className='positioning-btn'>定位当前位置</button>
             </div>
         </div>
 

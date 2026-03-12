@@ -33,6 +33,7 @@
         padding: 0;
         height: auto;
         width: auto;
+        min-height: auto;
     }
     
     /* TodaySWeather - order: 1 (第2个) */

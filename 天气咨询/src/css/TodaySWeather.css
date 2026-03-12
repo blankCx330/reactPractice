@@ -146,18 +146,18 @@
 /* 小型平板设备 */
 @media (max-width: 768px) {
     .today-weather {
-        min-height: 250px;
-        padding: 8px;
+        min-height: 280px;
+        padding: 10px;
     }
 
     .now-title {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         margin-left: 10px;
     }
 
     .temperature {
         width: 50%;
-        font-size: 3rem;
+        font-size: 3.2rem;
     }
 
     .celsius-symbol {
@@ -169,42 +169,45 @@
     }
 
     .now-weather-photo i {
-        font-size: 4rem;
+        font-size: 4.2rem;
     }
 
     .now-weather-text {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .now-date, .city {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
-/* 手机设备 - 重新设计的紧凑布局 */
+/* 手机设备 - 紧凑美观布局 */
 @media (max-width: 480px) {
     .today-weather {
-        min-height: 160px;
-        padding: 12px 15px;
+        width: 100%;
+        min-height: auto;
+        padding: 14px 16px;
         border-radius: 16px;
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: auto 1fr auto;
         grid-template-rows: auto auto auto;
         grid-template-areas:
-            'header header'
-            'temp icon'
-            'info info';
-        gap: 8px;
+            'header header header'
+            'temp weather icon'
+            'city city city';
+        gap: 8px 12px;
+        align-items: center;
     }
 
     .now-title {
         grid-area: header;
-        font-size: 1rem;
+        font-size: 0.85rem;
         margin: 0;
         padding: 0;
         height: auto;
         color: rgba(255, 255, 255, 0.7);
         font-weight: 500;
+        justify-content: flex-start;
     }
 
     .temperature {
@@ -212,7 +215,7 @@
         width: auto;
         height: auto;
         margin: 0;
-        font-size: 3.2rem;
+        font-size: 2.8rem;
         font-weight: 700;
         align-items: center;
         justify-content: flex-start;
@@ -220,9 +223,9 @@
     }
 
     .celsius-symbol {
-        font-size: 1.4rem;
-        margin-top: 5px;
-        margin-left: 3px;
+        font-size: 1.1rem;
+        margin-top: 4px;
+        margin-left: 2px;
     }
 
     .now-weather-photo {
@@ -235,11 +238,12 @@
     }
 
     .now-weather-photo i {
-        font-size: 3.8rem;
+        font-size: 3.2rem;
     }
 
+    /* 天气描述 - 与温度图标同行 */
     .now-weather-text {
-        grid-area: info;
+        grid-area: weather;
         width: auto;
         height: auto;
         margin: 0;
@@ -247,27 +251,33 @@
         color: rgba(255, 255, 255, 0.9);
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding-top: 8px;
-        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        justify-content: center;
+        padding: 0;
+        font-weight: 500;
     }
 
-    /* 隐藏原有分割线 */
+    /* 隐藏分割线 */
     .divider {
         display: none;
     }
 
-    .now-date, .city {
-        font-size: 0.8rem;
-        margin: 0;
-        width: auto;
-        text-align: left;
-        color: rgba(255, 255, 255, 0.6);
+    /* 隐藏日期 */
+    .now-date {
+        display: none;
     }
 
-    .now-weather-text::after {
-        content: attr(data-city);
-        font-size: 0.75rem;
-        color: rgba(255, 255, 255, 0.5);
+    /* 城市地点 - 美化显示 */
+    .city {
+        grid-area: city;
+        width: auto;
+        height: auto;
+        margin: 4px 0 0 0;
+        font-size: 0.85rem;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.75);
+        padding: 6px 12px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 8px;
+        letter-spacing: 0.5px;
     }
 }

@@ -132,6 +132,36 @@
 /* 小型平板设备 */
 @media (max-width: 768px) {
     .sunrise-and-moonrise-times {
+        padding: 12px;
+        margin: 5px;
+    }
+
+    .time-text {
+        font-size: 1.1rem;
+    }
+
+    .time-div {
+        padding: 10px 12px;
+        font-size: 1rem;
+    }
+
+    .sunrise-and-moonrise-times i {
+        font-size: 7vh;
+    }
+
+    .sunrise-time-value, .moonrise-time-value {
+        font-size: 1.6rem;
+    }
+
+    .sunrise-time, .moonrise-time {
+        font-size: 1.1rem;
+    }
+}
+
+/* 手机设备 */
+@media (max-width: 480px) {
+    .sunrise-and-moonrise-times {
+        width: 100%;
         padding: 10px;
         margin: 3px;
     }
@@ -143,6 +173,8 @@
     .time-div {
         padding: 8px 10px;
         font-size: 0.9rem;
+        flex-direction: column;
+        gap: 8px;
     }
 
     .sunrise-and-moonrise-times i {
@@ -155,37 +187,5 @@
 
     .sunrise-time, .moonrise-time {
         font-size: 1rem;
-    }
-}
-
-/* 手机设备 */
-@media (max-width: 480px) {
-    .sunrise-and-moonrise-times {
-        width: 100%;
-        padding: 8px;
-        margin: 2px;
-    }
-
-    .time-text {
-        font-size: 0.9rem;
-    }
-
-    .time-div {
-        padding: 6px 8px;
-        font-size: 0.85rem;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .sunrise-and-moonrise-times i {
-        font-size: 5vh;
-    }
-
-    .sunrise-time-value, .moonrise-time-value {
-        font-size: 1.2rem;
-    }
-
-    .sunrise-time, .moonrise-time {
-        font-size: 0.9rem;
     }
 }

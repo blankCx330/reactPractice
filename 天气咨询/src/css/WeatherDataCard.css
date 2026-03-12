@@ -117,23 +117,23 @@
     .weather-data-card {
         width: 45%;
         height: 16vh;
-        padding: 10px;
+        padding: 12px;
     }
 
     .weather-data-card-header {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .weather-data-card i {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
 
     .card-data {
-        font-size: 3rem;
+        font-size: 3.2rem;
     }
 
     .card-unit {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -142,24 +142,24 @@
     .weather-data-card {
         width: 100%;
         height: auto;
-        min-height: 100px;
-        padding: 10px;
-        margin-bottom: 0; /* Grid 用 gap 控制间距 */
+        min-height: 110px;
+        padding: 12px;
+        margin-bottom: 0;
     }
 
     .weather-data-card-header {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
     }
 
     .weather-data-card i {
-        font-size: 2rem;
+        font-size: 2.6rem;
     }
 
     .card-data {
-        font-size: 2rem;
+        font-size: 2.6rem;
     }
 
     .card-unit {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
     }
 }

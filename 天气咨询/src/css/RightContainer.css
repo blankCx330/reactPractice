@@ -103,18 +103,20 @@
         order: 4; /* 第5个显示 */
         height: auto;
         width: 100%;
+        padding: 12px 0;
     }
     
     .weather-data-top, .weather-data-bottom {
         flex-direction: column;
         align-items: center;
+        gap: 12px;
     }
     
     .real-time-weather-data {
         order: 2; /* 第3个显示 */
         grid-template-columns: repeat(6, 1fr); /* 每行6个，共4行 */
-        gap: 4px;
-        padding: 8px;
+        gap: 8px;
+        padding: 10px;
         height: auto;
         width: 100%;
     }
@@ -125,35 +127,37 @@
     .right-container {
         display: contents; /* 保持display: contents */
         width: 100vw;
-        padding: 3px;
+        padding: 5px;
     }
     
     .weather-data {
         order: 4; /* 第5个显示 */
         height: auto;
         width: 100%;
-        padding: 8px;
+        padding: 10px 0;
+        -webkit-overflow-scrolling: touch;
     }
     
     .weather-data-top {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        gap: 8px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
     }
     
     .weather-data-bottom {
         display: grid;
         grid-template-columns: repeat(2, 1fr); /* 2x2 网格 */
-        gap: 8px;
+        gap: 10px;
         width: 100%;
     }
     
     .real-time-weather-data {
         order: 2; /* 第3个显示 */
         grid-template-columns: repeat(4, 1fr); /* 每行4个，共6行 */
-        gap: 3px;
-        padding: 5px;
+        gap: 6px;
+        padding: 8px;
         width: 100%;
+        -webkit-overflow-scrolling: touch;
     }
 }
