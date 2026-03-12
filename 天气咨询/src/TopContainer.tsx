@@ -4,7 +4,7 @@ import Search from './iconSVG/Search'
 import MapPositioningSVG from './iconSVG/MapPositioningSVG'
 import { useState, useEffect, useRef } from 'react'
 import { useQuery } from "@tanstack/react-query"
-import type { TopCityResponse, PoiLookupResponse, CityLookupResponse } from './types/qweather'
+import type { TopCityResponse, PoiLookupResponse, CityLookupResponse,} from './types/qweather'
 export default function TopContainer({topCityList, userLocation, onLocationChange}: {topCityList: TopCityResponse['topCityList'], userLocation?: any, onLocationChange: (lon: number, lat: number) => void}) {
     
     const apiHost = import.meta.env.VITE_API_HOST
@@ -15,10 +15,10 @@ export default function TopContainer({topCityList, userLocation, onLocationChang
     const [showSuggestions, setShowSuggestions] = useState(false)
 
     //获取搜索的城市坐标
-    const {data: getCityLocation} = useQuery<PoiLookupResponse | null>({
+    const {data: getCityLocation} = useQuery<CityLookupResponse| null>({
         queryKey: ['searchedCityLocation', inputCityName],
         queryFn: async () => {
-            const searchedUrl = `https://${apiHost}/geo/v2/poi/lookup?type=scenic&location=${inputCityName}&key=${apiKey}`
+            const searchedUrl = `https://${apiHost}/geo/v2/city/lookup?&location=${inputCityName}&key=${apiKey}`
             console.log('触发辣！')
             return fetch(searchedUrl).then(res => res.json())
         },
@@ -27,8 +27,8 @@ export default function TopContainer({topCityList, userLocation, onLocationChang
     console.log("搜索的城市坐标", getCityLocation)
     const setCityLocation = () => {
         if(getCityLocation)
-            onLocationChange(getCityLocation.poi[0].lon, getCityLocation.poi[0].lat)
-        console.log('经纬度', getCityLocation?.poi[0].lon, getCityLocation?.poi[0].lat)
+            onLocationChange(getCityLocation.location[0].lon, getCityLocation.location[0].lat)
+        console.log('经纬度', getCityLocation?.location[0].lon, getCityLocation?.location[0].lat)
     }
 
     const onKeyDown = (e : React.KeyboardEvent<HTMLInputElement>) => {
@@ -64,9 +64,9 @@ export default function TopContainer({topCityList, userLocation, onLocationChang
                     onFocus={() => setShowSuggestions(true)}
                     onBlur={handleBlur}
                 />
-                {showSuggestions && getCityLocation?.poi?.length && (
+                {showSuggestions && getCityLocation?.location?.length && (
                     <div className='suggestions-list'>
-                        {getCityLocation?.poi?.map((data: any) => (
+                        {getCityLocation?.location?.map((data: any) => (
                             <div
                                 key={data.id}
                                 className='suggestion-item'

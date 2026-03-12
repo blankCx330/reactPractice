@@ -54,7 +54,7 @@
 }
 
 .sunrise-and-moonrise-times i {
-    font-size: 10vh;
+    font-size: clamp(3rem, 6vh, 5rem);
     color: #FFC107;
     text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
     transition: transform 0.3s ease;
@@ -90,6 +90,12 @@
     align-items: center;
     gap: 12px;
     font-size: 1.2rem;
+}
+
+
+/* 大屏设备 */
+@media (min-width: 1280px) {
+    /* 大屏优化样式 */
 }
 
 /* 响应式设计 */

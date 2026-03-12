@@ -95,9 +95,9 @@ export interface Location {
   /** 地区/城市 ID */
   id: string
   /** 地区/城市纬度 */
-  lat: string
+  lat: number
   /** 地区/城市经度 */
-  lon: string
+  lon: number
   /** 地区/城市的上级行政区划名称 */
   adm2: string
   /** 地区/城市所属一级行政区域 */

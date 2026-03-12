@@ -4,6 +4,7 @@
     background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(40, 40, 40, 0.9));
     width: 23%;
     height: 20vh;
+    min-height: 140px;
     color: #ffffff;
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     box-sizing: border-box;
@@ -62,7 +63,7 @@
 
 /* 数值样式 */
 .card-data {
-    font-size: 4rem;
+    font-size: clamp(2rem, 3vw, 3rem);
     font-weight: 700;
     line-height: 1;
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -77,6 +78,12 @@
     font-size: 1rem;
     opacity: 0.7;
     font-weight: 400;
+}
+
+
+/* 大屏设备 */
+@media (min-width: 1280px) {
+    /* 大屏优化样式 */
 }
 
 /* 响应式设计 */
@@ -135,9 +142,9 @@
     .weather-data-card {
         width: 100%;
         height: auto;
-        min-height: 120px;
-        padding: 8px;
-        margin-bottom: 10px;
+        min-height: 100px;
+        padding: 10px;
+        margin-bottom: 0; /* Grid 用 gap 控制间距 */
     }
 
     .weather-data-card-header {
@@ -149,10 +156,10 @@
     }
 
     .card-data {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .card-unit {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
 }

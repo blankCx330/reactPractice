@@ -98,7 +98,12 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* 滚动条样式 */
+/* 滚动条样式 - 与全局统一 */
+.seven-day-weather-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+}
+
 .seven-day-weather-content::-webkit-scrollbar {
     width: 6px;
 }
@@ -109,12 +114,12 @@
 }
 
 .seven-day-weather-content::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 3px;
 }
 
 .seven-day-weather-content::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.4);
 }
 
 /* 响应式设计 */
@@ -163,6 +168,10 @@
     .seven-day-weather {
         padding: 8px;
         border-radius: 10px;
+        height: auto;
+        min-height: 180px; /* 确保至少显示3天数据 */
+        max-height: 280px;
+        overflow: hidden;
     }
 
     .seven-day-weather-header {
@@ -178,12 +187,35 @@
     .seven-day-weather-content {
         padding: 4px;
         gap: 4px;
-        max-height: 300px;
+        min-height: 120px; /* 最小高度确保3天可见 */
+        max-height: 220px;
+        height: auto;
+        overflow-y: auto !important; /* 强制显示滚动条 */
+        overflow-x: hidden;
+        /* 滚动条样式 */
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+        -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
+    }
+
+    .seven-day-weather-content::-webkit-scrollbar {
+        width: 6px;
+        display: block; /* 确保显示 */
+    }
+
+    .seven-day-weather-content::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+    }
+
+    .seven-day-weather-content::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 3px;
     }
 
     .seven-day-weather-content-item {
         padding: 6px 8px;
-        min-height: 30px;
+        min-height: 32px;
     }
 
     .seven-day-weather-date {

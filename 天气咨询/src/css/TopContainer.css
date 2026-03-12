@@ -4,7 +4,7 @@
     background-color: rgb(0, 0, 0);
     height: 9vh;
     width: 100%;
-    min-height: 50px;
+    min-height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,7 +46,7 @@
     border-radius: 100px;
     padding-left: 50px;
     
-    font-size: 2rem;
+    font-size: clamp(1rem, 1.5vw, 1.8rem);
     color: rgb(255, 255, 255);
     text-align: center;
     line-height: 8vh;
@@ -129,6 +129,12 @@
     min-height: 30px;
     width: auto;
     z-index: 1;
+}
+
+
+/* 大屏设备 */
+@media (min-width: 1280px) {
+    /* 大屏优化样式 */
 }
 
 /* 响应式设计 */
