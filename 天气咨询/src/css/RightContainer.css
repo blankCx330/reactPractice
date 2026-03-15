@@ -1,163 +1,163 @@
 /* RightContainer.css */
 .right-container {
-    height: 91vh;
-    min-height: 500px;
-    width: 80vw;
+  height: 91vh;
+  min-height: 500px;
+  width: 80vw;
 }
 
 .weather-data {
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    overflow-y: auto; /* 修改为垂直滚动 */
-    overflow-x: hidden; /* 隐藏水平滚动条 */
-    
-    /* 滚动条样式 - 与全局统一 */
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow-y: auto; /* 修改为垂直滚动 */
+  overflow-x: hidden; /* 隐藏水平滚动条 */
+
+  /* 滚动条样式 - 与全局统一 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
 }
 
-
 .weather-data-top {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .weather-data-bottom {
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }
 
 .real-time-weather-data {
-    flex: 1;
-    height: 40%;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr); /* 每行固定12个 */
-    gap: 6px; /* 统一间距 */
-    padding: 10px;
-    position: relative; /* 为伪元素定位提供参考 */
-    border-top: none; /* 移除原有的边框 */
-    overflow-y: auto;
-    overflow-x: hidden;
-    align-content: start; /* 内容从顶部开始排列 */
-    
-    /* 滚动条样式 - 与全局统一 */
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+  flex: 1;
+  height: 40%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 每行固定12个 */
+  gap: 6px; /* 统一间距 */
+  padding: 10px;
+  position: relative; /* 为伪元素定位提供参考 */
+  border-top: none; /* 移除原有的边框 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  align-content: start; /* 内容从顶部开始排列 */
+
+  /* 滚动条样式 - 与全局统一 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
 }
 
 .real-time-weather-data::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%); /* 水平居中 */
-    width: 97%; /* 分割线宽度为容器的80% */
-    height: 2px; /* 分割线高度 */
-    background-color: rgba(255, 255, 255, 0.7); /* 使用与原有边框相似的颜色 */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); /* 水平居中 */
+  width: 97%; /* 分割线宽度为容器的80% */
+  height: 2px; /* 分割线高度 */
+  background-color: rgba(255, 255, 255, 0.7); /* 使用与原有边框相似的颜色 */
 }
-
 
 /* 大屏设备 */
 @media (min-width: 1280px) {
-    /* 大屏优化样式 */
+  /* 大屏优化样式 */
 }
 
 /* 响应式设计 */
 /* 平板设备 */
 @media (max-width: 1024px) {
-    .right-container {
-        width: 100vw;
-        height: auto;
-    }
-    
-    .weather-data {
-        height: auto;
-        padding: 10px;
-    }
-    
-    .weather-data-top, .weather-data-bottom {
-        flex-wrap: wrap;
-    }
-    
-    .real-time-weather-data {
-        grid-template-columns: repeat(8, 1fr);
-        gap: 5px;
-        padding: 8px;
-    }
+  .right-container {
+    width: 100vw;
+    height: auto;
+  }
+
+  .weather-data {
+    height: auto;
+    padding: 10px;
+  }
+
+  .weather-data-top,
+  .weather-data-bottom {
+    flex-wrap: wrap;
+  }
+
+  .real-time-weather-data {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+    padding: 8px;
+  }
 }
 
 /* 小型平板设备 */
 @media (max-width: 768px) {
-    .right-container {
-        display: contents; /* 容器在布局中"消失" */
-        height: auto;
-        padding: 0;
-        width: auto;
-    }
-    
-    .weather-data {
-        order: 4; /* 第5个显示 */
-        height: auto;
-        width: 100%;
-        padding: 12px 0;
-    }
-    
-    .weather-data-top, .weather-data-bottom {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-    }
-    
-    .real-time-weather-data {
-        order: 2; /* 第3个显示 */
-        grid-template-columns: repeat(6, 1fr); /* 每行6个，共4行 */
-        gap: 8px;
-        padding: 10px;
-        height: auto;
-        width: 100%;
-    }
+  .right-container {
+    display: contents; /* 容器在布局中"消失" */
+    height: auto;
+    padding: 0;
+    width: auto;
+  }
+
+  .weather-data {
+    order: 4; /* 第5个显示 */
+    height: auto;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .weather-data-top,
+  .weather-data-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .real-time-weather-data {
+    order: 2; /* 第3个显示 */
+    grid-template-columns: repeat(6, 1fr); /* 每行6个，共4行 */
+    gap: 8px;
+    padding: 10px;
+    height: auto;
+    width: 100%;
+  }
 }
 
 /* 手机设备 */
 @media (max-width: 480px) {
-    .right-container {
-        display: contents; /* 保持display: contents */
-        width: 100vw;
-        padding: 5px;
-    }
-    
-    .weather-data {
-        order: 4; /* 第5个显示 */
-        height: auto;
-        width: 100%;
-        padding: 10px 0;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .weather-data-top {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        width: 100%;
-    }
-    
-    .weather-data-bottom {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2x2 网格 */
-        gap: 10px;
-        width: 100%;
-    }
-    
-    .real-time-weather-data {
-        order: 2; /* 第3个显示 */
-        grid-template-columns: repeat(4, 1fr); /* 每行4个，共6行 */
-        gap: 6px;
-        padding: 8px;
-        width: 100%;
-        -webkit-overflow-scrolling: touch;
-    }
+  .right-container {
+    display: contents; /* 保持display: contents */
+    width: 100vw;
+    padding: 5px;
+  }
+
+  .weather-data {
+    order: 4; /* 第5个显示 */
+    height: auto;
+    width: 100%;
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .weather-data-top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .weather-data-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 网格 */
+    gap: 10px;
+    width: 100%;
+  }
+
+  .real-time-weather-data {
+    order: 2; /* 第3个显示 */
+    grid-template-columns: repeat(4, 1fr); /* 每行4个，共6行 */
+    gap: 6px;
+    padding: 8px;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
 }

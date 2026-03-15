@@ -1,235 +1,234 @@
 /* 七日天气预报容器 */
 .seven-day-weather {
-    width: 95%;
-    height: 55%;
-    border-radius: 20px;
-    background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(40, 40, 40, 0.9));
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-    transition: all 0.3s ease;
+  width: 95%;
+  height: 55%;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(40, 40, 40, 0.9));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 /* 七日天气预报标题 */
 .seven-day-weather-header {
-    width: 100%;
-    padding: 12px 15px;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* 七日天气预报图标 */
 .seven-day-weather-header-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
 /* 七日天气预报内容区域 */
 .seven-day-weather-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 8px;
-    gap: 6px;
-    overflow-y: auto;
-    height: calc(100% - 55px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 6px;
+  overflow-y: auto;
+  height: calc(100% - 55px);
 }
 
 /* 每日天气项 */
 .seven-day-weather-content-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
-    min-height: 40px;
-    white-space: nowrap; /* 防止内容换行 */
-    overflow: hidden; /* 防止内容溢出 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  min-height: 40px;
+  white-space: nowrap; /* 防止内容换行 */
+  overflow: hidden; /* 防止内容溢出 */
 }
 
 /* 每日天气项悬停效果 */
 .seven-day-weather-content-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
 }
 
 /* 日期显示 */
 .seven-day-weather-date {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.9);
-    min-width: 90px;
-    flex-shrink: 0; /* 防止日期被压缩 */
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  min-width: 90px;
+  flex-shrink: 0; /* 防止日期被压缩 */
 }
 
 /* 天气描述 */
 .one-day-weather {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.9);
-    margin-right: auto;
-    margin-left: 15px;
-    flex-shrink: 0; /* 防止天气描述被压缩 */
-    white-space: nowrap; /* 防止天气描述换行 */
-    overflow: hidden; /* 防止天气描述溢出 */
-    text-overflow: ellipsis; /* 超出部分显示省略号 */
-    max-width: 120px; /* 限制最大宽度 */
-    min-width: 2em;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-right: auto;
+  margin-left: 15px;
+  flex-shrink: 0; /* 防止天气描述被压缩 */
+  white-space: nowrap; /* 防止天气描述换行 */
+  overflow: hidden; /* 防止天气描述溢出 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  max-width: 120px; /* 限制最大宽度 */
+  min-width: 2em;
 }
 
 /* 天气图标 */
-.seven-day-weather-content-item > i{
-    font-size: 30px;
-    color: rgba(255, 255, 255, 0.9);
-    flex-shrink: 0; /* 防止图标被压缩 */
-
+.seven-day-weather-content-item > i {
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  flex-shrink: 0; /* 防止图标被压缩 */
 }
 
 /* 第一天（今天）的特殊样式 */
 .seven-day-weather-content-item:first-child {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* 滚动条样式 - 与全局统一 */
 .seven-day-weather-content {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
 }
 
 .seven-day-weather-content::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 .seven-day-weather-content::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
 }
 
 .seven-day-weather-content::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
 }
 
 .seven-day-weather-content::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 /* 响应式设计 */
 /* 小型平板设备 */
 @media (max-width: 768px) {
-    .seven-day-weather {
-        height: auto;
-        padding: 15px;
-        border-radius: 14px;
-    }
-    
-    .seven-day-weather-header {
-        font-size: 15px;
-        padding: 12px;
-    }
-    
-    .seven-day-weather-content {
-        padding: 8px;
-        gap: 6px;
-        height: auto;
-        max-height: 380px;
-    }
-    
-    .seven-day-weather-content-item {
-        padding: 10px 12px;
-        min-height: 38px;
-    }
-    
-    .seven-day-weather-date {
-        font-size: 14px;
-        min-width: 80px;
-    }
-    
-    .one-day-weather {
-        font-size: 14px;
-        margin-left: 12px;
-        max-width: 90px;
-    }
-    
-    .qi-100 {
-        font-size: 22px;
-    }
+  .seven-day-weather {
+    height: auto;
+    padding: 15px;
+    border-radius: 14px;
+  }
+
+  .seven-day-weather-header {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .seven-day-weather-content {
+    padding: 8px;
+    gap: 6px;
+    height: auto;
+    max-height: 380px;
+  }
+
+  .seven-day-weather-content-item {
+    padding: 10px 12px;
+    min-height: 38px;
+  }
+
+  .seven-day-weather-date {
+    font-size: 14px;
+    min-width: 80px;
+  }
+
+  .one-day-weather {
+    font-size: 14px;
+    margin-left: 12px;
+    max-width: 90px;
+  }
+
+  .qi-100 {
+    font-size: 22px;
+  }
 }
 
 /* 手机设备 */
 @media (max-width: 480px) {
-    .seven-day-weather {
-        padding: 12px;
-        border-radius: 12px;
-        height: auto;
-        min-height: 200px;
-        max-height: 320px;
-        overflow: hidden;
-    }
+  .seven-day-weather {
+    padding: 12px;
+    border-radius: 12px;
+    height: auto;
+    min-height: 200px;
+    max-height: 320px;
+    overflow: hidden;
+  }
 
-    .seven-day-weather-header {
-        font-size: 14px;
-        padding: 10px 12px;
-    }
+  .seven-day-weather-header {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
 
-    .seven-day-weather-header-icon {
-        width: 18px;
-        height: 18px;
-    }
+  .seven-day-weather-header-icon {
+    width: 18px;
+    height: 18px;
+  }
 
-    .seven-day-weather-content {
-        padding: 6px;
-        gap: 6px;
-        min-height: 140px;
-        max-height: 260px;
-        height: auto;
-        overflow-y: auto !important;
-        overflow-x: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
-        -webkit-overflow-scrolling: touch;
-    }
+  .seven-day-weather-content {
+    padding: 6px;
+    gap: 6px;
+    min-height: 140px;
+    max-height: 260px;
+    height: auto;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+    -webkit-overflow-scrolling: touch;
+  }
 
-    .seven-day-weather-content::-webkit-scrollbar {
-        width: 6px;
-        display: block;
-    }
+  .seven-day-weather-content::-webkit-scrollbar {
+    width: 6px;
+    display: block;
+  }
 
-    .seven-day-weather-content::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 3px;
-    }
+  .seven-day-weather-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+  }
 
-    .seven-day-weather-content::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 3px;
-    }
+  .seven-day-weather-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+  }
 
-    .seven-day-weather-content-item {
-        padding: 8px 10px;
-        min-height: 38px;
-    }
+  .seven-day-weather-content-item {
+    padding: 8px 10px;
+    min-height: 38px;
+  }
 
-    .seven-day-weather-date {
-        font-size: 13px;
-        min-width: 70px;
-    }
+  .seven-day-weather-date {
+    font-size: 13px;
+    min-width: 70px;
+  }
 
-    .one-day-weather {
-        font-size: 13px;
-        margin-left: 10px;
-        max-width: 70px;
-    }
+  .one-day-weather {
+    font-size: 13px;
+    margin-left: 10px;
+    max-width: 70px;
+  }
 
-    .qi-100 {
-        font-size: 20px;
-    }
+  .qi-100 {
+    font-size: 20px;
+  }
 }

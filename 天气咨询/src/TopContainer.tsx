@@ -3,100 +3,123 @@ import logo from './assets/logo.png'
 import Search from './iconSVG/Search'
 import MapPositioningSVG from './iconSVG/MapPositioningSVG'
 import { useState, useEffect, useRef } from 'react'
-import { useQuery } from "@tanstack/react-query"
-import type { TopCityResponse, PoiLookupResponse, CityLookupResponse,} from './types/qweather'
-export default function TopContainer({topCityList, userLocation, onLocationChange}: {topCityList: TopCityResponse['topCityList'], userLocation?: any, onLocationChange: (lon: number, lat: number) => void}) {
-    
-    const apiHost = import.meta.env.VITE_API_HOST
-    const apiKey = import.meta.env.VITE_API_KEY
+import { useLocationStore } from './hooks/useLocationStore'
+import { useCityLocation } from './hooks/useCityLocation'
+import { useUserLocation } from './hooks/useUserLocation'
+import type { Location } from './types/qweather'
+export default function TopContainer() {
+  const [inputCityName, setInputCityName] = useState('')
+  //用户选择框的选项列表
+  const [showSuggestions, setShowSuggestions] = useState(false)
 
-    const [inputCityName, setInputCityName] = useState('')
-    //用户选择框的选项列表
-    const [showSuggestions, setShowSuggestions] = useState(false)
+  const location = useLocationStore(state => state.location)
+  const setLocation = useLocationStore(state => state.setLocation)
 
-    //获取搜索的城市坐标
-    const {data: getCityLocation} = useQuery<CityLookupResponse| null>({
-        queryKey: ['searchedCityLocation', inputCityName],
-        queryFn: async () => {
-            const searchedUrl = `https://${apiHost}/geo/v2/city/lookup?&location=${inputCityName}&key=${apiKey}`
-            console.log('触发辣！')
-            return fetch(searchedUrl).then(res => res.json())
-        },
-        enabled: inputCityName.length > 1 // 初始不执行查询，等到用户输入后再执行
-    })
-    console.log("搜索的城市坐标", getCityLocation)
-    const setCityLocation = () => {
-        if(getCityLocation)
-            onLocationChange(getCityLocation.location[0].lon, getCityLocation.location[0].lat)
-        console.log('经纬度', getCityLocation?.location[0].lon, getCityLocation?.location[0].lat)
+  //获取搜索的城市坐标
+  const { data: getCityLocation, isLoading: cityLocationIsLoading } = useCityLocation(inputCityName)
+
+  const {
+    data: userLocation,
+    isLoading: userLocationloading,
+    isError: userLocationIsError,
+  } = useUserLocation()
+
+  const setCityLocation = () => {
+    const lon = getCityLocation?.location[0].lon
+    const lat = getCityLocation?.location[0].lat
+    if (getCityLocation && lon && lat) setLocation({ lon, lat })
+    // onLocationChange(getCityLocation.location[0].lon, getCityLocation.location[0].lat)
+  }
+
+  const suggestionsListText = () => {
+    if (!showSuggestions || !inputCityName) return null
+
+    if (cityLocationIsLoading) {
+      return (
+        <div className="suggestions-list">
+          <div className="suggestion-item">搜索中...</div>
+        </div>
+      )
     }
 
-    const onKeyDown = (e : React.KeyboardEvent<HTMLInputElement>) => {
-        if(e.key === 'Enter')
-            setCityLocation()
-    }
-    const handleBlur = () => {
-        setTimeout(() => setShowSuggestions(false), 100)
+    //记得加"!",不然下面的.map()对null/undefined调用会抛出 JavaScript 错误，React 组件崩溃
+    if (!getCityLocation?.location?.length) {
+      return (
+        <div className="suggestions-list">
+          <div className="suggestion-item">未找到匹配城市</div>
+        </div>
+      )
     }
 
-    // 移除
-    // const cityList = topCityList.map(city => {
-    //     return <option key={city.id} value={city.name} />
-    // })
-    
-    return(
-        <div className="top-container">
-            <img src={logo} alt="logo" className='logo'/>
-            <div className='input-div'>
-                <Search />
-                <input
-                    type='text' 
-                    className='city-input' 
-                    list='city-list' 
-                    placeholder='输入城市'
-                    value={inputCityName}
-                    // onClick={() => setInputCityName('')}
-                    onKeyDown={(e) => onKeyDown(e)}
-                    onChange={(e) => {
-                        setInputCityName(e.target.value)
-                        setShowSuggestions(true)
-                    }}
-                    onFocus={() => setShowSuggestions(true)}
-                    onBlur={handleBlur}
-                />
-                {showSuggestions && getCityLocation?.location?.length && (
-                    <div className='suggestions-list'>
-                        {getCityLocation?.location?.map((data: any) => (
-                            <div
-                                key={data.id}
-                                className='suggestion-item'
-                                onClick={() => {
-                                    setInputCityName(data.name)
-                                    setShowSuggestions(false)
-                                    onLocationChange(data.lon, data.lat)
-                                }}
-                            >
-                                {data.adm2} - {data.name} - {data.adm1}
-                            </div>
-                        ))}
-                    </div>
-                )}
-                {/*
+    return (
+      <div className="suggestions-list">
+        {getCityLocation?.location.map(data => (
+          <div key={data.id} className="suggestion-item" onClick={() => handleListOnClick(data)}>
+            {data.adm2} - {data.name} - {data.adm1}
+          </div>
+        ))}
+      </div>
+    )
+  }
+
+  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') setCityLocation()
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputCityName(e.target.value)
+    setShowSuggestions(true)
+  }
+  const handleListOnClick = (data: Location) => {
+    setInputCityName(data.name)
+    setShowSuggestions(false)
+    setLocation({ lon: data.lon, lat: data.lat })
+  }
+  const handleBlur = () => {
+    setTimeout(() => setShowSuggestions(false), 100)
+  }
+  const handleUserCurrentLoaction = () => {
+    if (userLocation) setLocation({ lon: userLocation.lon, lat: userLocation.lat })
+    setInputCityName('')
+  }
+  const positioningText = () => {
+    if (userLocationloading) return '定位中...'
+    if (userLocationIsError) return '定位失败'
+    return '定位当前位置'
+  }
+
+  // 移除
+  // const cityList = topCityList.map(city => {
+  //     return <option key={city.id} value={city.name} />
+  // })
+
+  return (
+    <div className="top-container">
+      <img src={logo} alt="logo" className="logo" />
+      <div className="input-div">
+        <Search />
+        <input
+          type="text"
+          className="city-input"
+          list="city-list"
+          placeholder="输入城市"
+          value={inputCityName}
+          onKeyDown={e => onKeyDown(e)}
+          onChange={e => handleInputChange(e)}
+          onFocus={() => setShowSuggestions(true)}
+          onBlur={handleBlur}
+        />
+        {suggestionsListText()}
+        {/*
                 移除
                  <datalist id='city-list' className='city-list'>
                     {cityList}
                 </datalist> */}
-            </div>
-            <div className='positioning-div'
-                    onClick={()=>{
-                        onLocationChange(userLocation.lon, userLocation.lat)
-                        setInputCityName('')
-                    }}>
-                <MapPositioningSVG />
-                <button className='positioning-btn'>定位当前位置</button>
-            </div>
-        </div>
-
-        
-    )
+      </div>
+      <div className="positioning-div" onClick={handleUserCurrentLoaction}>
+        <MapPositioningSVG />
+        <button className="positioning-btn">{positioningText()}</button>
+      </div>
+    </div>
+  )
 }

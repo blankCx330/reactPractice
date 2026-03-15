@@ -1,134 +1,133 @@
 .real-time-card {
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    /* Grid子项：填满单元格 */
-    width: 100%;
-    min-width: 0;
-    max-width: none;
-    height: auto;
-    margin: 0; /* Grid使用gap控制间距 */
-    border-radius: 5px;
-    background: rgba(60, 60, 60, 0.9);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 4px;
-    transition: all 0.2s ease;
-    min-height: 100px;
-    box-sizing: border-box;
-    overflow: hidden;
-    contain: content;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* Grid子项：填满单元格 */
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  height: auto;
+  margin: 0; /* Grid使用gap控制间距 */
+  border-radius: 5px;
+  background: rgba(60, 60, 60, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4px;
+  transition: all 0.2s ease;
+  min-height: 100px;
+  box-sizing: border-box;
+  overflow: hidden;
+  contain: content;
 }
 
 .real-time-card:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .real-time {
-    color: #ffffff;
-    font-size: clamp(0.7rem, 1rem, 1rem);
-    font-weight: 400;
-    margin-bottom: 4px;
-    line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  color: #ffffff;
+  font-size: clamp(0.7rem, 1rem, 1rem);
+  font-weight: 400;
+  margin-bottom: 4px;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .real-time-temperature {
-    color: #ffffff;
-    font-size: clamp(0.8rem, 1.2rem, 1.2rem);
-    font-weight: 500;
-    line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  color: #ffffff;
+  font-size: clamp(0.8rem, 1.2rem, 1.2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .real-time-card i {
-    font-size: clamp(24px, 4vh, 40px);
-    max-width: 80%;
-    color: #ffffff;
+  font-size: clamp(24px, 4vh, 40px);
+  max-width: 80%;
+  color: #ffffff;
 }
-
 
 /* 大屏设备 */
 @media (min-width: 1280px) {
-    /* 大屏优化样式 */
+  /* 大屏优化样式 */
 }
 
 /* 响应式设计 */
 /* 平板设备 */
 @media (max-width: 1024px) {
-    .real-time-card {
-        padding: 6px 3px;
-        min-height: 90px;
-    }
+  .real-time-card {
+    padding: 6px 3px;
+    min-height: 90px;
+  }
 
-    .real-time {
-        font-size: 0.9rem;
-    }
+  .real-time {
+    font-size: 0.9rem;
+  }
 
-    .real-time-temperature {
-        font-size: 1.1rem;
-    }
+  .real-time-temperature {
+    font-size: 1.1rem;
+  }
 
-    .real-time-card i {
-        font-size: clamp(20px, 3.5vh, 35px);
-    }
+  .real-time-card i {
+    font-size: clamp(20px, 3.5vh, 35px);
+  }
 }
 
 /* 小型平板设备 */
 @media (max-width: 768px) {
-    .real-time-card {
-        padding: 6px 4px;
-        min-height: 85px;
-        min-width: 70px;
-    }
+  .real-time-card {
+    padding: 6px 4px;
+    min-height: 85px;
+    min-width: 70px;
+  }
 
-    .real-time {
-        font-size: 0.85rem;
-    }
+  .real-time {
+    font-size: 0.85rem;
+  }
 
-    .real-time-temperature {
-        font-size: 1.1rem;
-    }
+  .real-time-temperature {
+    font-size: 1.1rem;
+  }
 
-    .real-time-card i {
-        font-size: clamp(20px, 3.5vh, 32px);
-    }
+  .real-time-card i {
+    font-size: clamp(20px, 3.5vh, 32px);
+  }
 }
 
 /* 手机设备 */
 @media (max-width: 480px) {
-    .real-time-card {
-        padding: 8px 6px;
-        min-height: 85px;
-        min-width: 72px;
-        overflow: visible;
-    }
+  .real-time-card {
+    padding: 8px 6px;
+    min-height: 85px;
+    min-width: 72px;
+    overflow: visible;
+  }
 
-    .real-time {
-        font-size: 0.75rem;
-        white-space: normal;
-        text-align: center;
-        line-height: 1.3;
-        max-width: 100%;
-        overflow: visible;
-        margin-bottom: 4px;
-    }
+  .real-time {
+    font-size: 0.75rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+    max-width: 100%;
+    overflow: visible;
+    margin-bottom: 4px;
+  }
 
-    .real-time-temperature {
-        font-size: 0.9rem;
-        white-space: normal;
-        text-align: center;
-        line-height: 1.3;
-    }
+  .real-time-temperature {
+    font-size: 0.9rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.3;
+  }
 
-    .real-time-card i {
-        font-size: 24px;
-        margin: 5px 0;
-    }
+  .real-time-card i {
+    font-size: 24px;
+    margin: 5px 0;
+  }
 }

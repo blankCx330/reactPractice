@@ -458,3 +458,12 @@ export interface AirQualityStation {
   /** 监测站名称 */
   name: string
 }
+
+/**
+ * query传递的数据
+ */
+export interface QueryState {
+  isLoading: boolean
+  isError: boolean
+  error: Error
+}
