@@ -1,6 +1,7 @@
 import TopContainer from './TopContainer'
 import LeftContainer from './LeftContainer'
 import RightContainer from './RightContainer'
+import ErrorBoundary from './ErrorBoundary'
 import { useLocationStore } from './hooks/useLocationStore'
 import { useEffect } from 'react'
 import { useUserLocation } from './hooks/useUserLocation'
@@ -15,9 +16,7 @@ export default function WeatherApp() {
   const topCityList = hotCities?.topCityList ?? []
 
   //通过hook获取当前经纬度
-  const { data: userLocation } = useUserLocation()
-
-  // const [location, setLocation] = useState({ lon: 116, lat: 39 }) //默认位置为北京
+  const { data: userLocation, isLoading: uerLocationIsLoading } = useUserLocation()
 
   //使用精准订阅，订阅字段变化时才触发重渲染，避免不必要的性能开销
   const location = useLocationStore(state => state.location)
@@ -43,11 +42,17 @@ export default function WeatherApp() {
 
   return (
     <div className="weather-app">
-      <TopContainer />
-      <div className="main-content">
-        <LeftContainer />
-        <RightContainer />
-      </div>
+      { uerLocationIsLoading ? 
+      <div className='loading-div'>网页加载中...</div> :
+        (<>
+        <ErrorBoundary>
+          <TopContainer />
+        </ErrorBoundary>
+          <div className="main-content">
+            <LeftContainer />
+            <RightContainer />
+          </div>
+        </>)}
     </div>
   )
 }

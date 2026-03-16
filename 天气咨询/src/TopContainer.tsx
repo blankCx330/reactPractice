@@ -110,11 +110,6 @@ export default function TopContainer() {
           onBlur={handleBlur}
         />
         {suggestionsListText()}
-        {/*
-                移除
-                 <datalist id='city-list' className='city-list'>
-                    {cityList}
-                </datalist> */}
       </div>
       <div className="positioning-div" onClick={handleUserCurrentLoaction}>
         <MapPositioningSVG />

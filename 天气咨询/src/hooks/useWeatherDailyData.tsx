@@ -5,7 +5,7 @@ const apiHost = import.meta.env.VITE_API_HOST
 const apiKey = import.meta.env.VITE_API_KEY
 
 //获取对应维度七日的天气数据
-export const useWeatherDailyData = (lon: number, lat: number) => {
+export const useWeatherDailyData = (lon: number | null, lat: number | null) => {
   const data = useQuery<WeatherDailyResponse>({
     queryKey: ['weatherDaily', lon, lat],
     queryFn: async () => {
