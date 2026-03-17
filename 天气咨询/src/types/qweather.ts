@@ -95,9 +95,9 @@ export interface Location {
   /** 地区/城市 ID */
   id: string
   /** 地区/城市纬度 */
-  lat: number
+  lat: string
   /** 地区/城市经度 */
-  lon: number
+  lon: string
   /** 地区/城市的上级行政区划名称 */
   adm2: string
   /** 地区/城市所属一级行政区域 */
@@ -155,9 +155,9 @@ export interface TopCity {
  */
 export interface UserLocation {
   /** 纬度 */
-  lat: number
+  lat: string
   /** 经度 */
-  lon: number
+  lon: string
 }
 
 /**
@@ -179,9 +179,9 @@ export interface Poi {
   /** POI ID */
   id: string
   /** POI纬度 */
-  lat: number
+  lat: string
   /** POI经度 */
-  lon: number
+  lon: string
   /** POI的上级行政区划名称 */
   adm2: string
   /** POI所属一级行政区域 */
@@ -466,4 +466,15 @@ export interface QueryState {
   isLoading: boolean
   isError: boolean
   error: Error
+}
+
+/**
+ *  收藏列表中的元素
+ */
+export interface City {
+  id: string
+  name: string
+  adm2: string
+  lon: string
+  lat: string
 }

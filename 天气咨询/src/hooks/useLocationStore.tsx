@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-type Location = { lon: number | null; lat: number | null}
+type Location = { lon: string | null; lat: string | null }
 
 type LocationStore = {
   location: Location
@@ -8,6 +8,6 @@ type LocationStore = {
 }
 
 export const useLocationStore = create<LocationStore>(set => ({
-  location: { lon: null, lat: null},
+  location: { lon: null, lat: null },
   setLocation: (newLocation: Location) => set({ location: newLocation }),
 }))

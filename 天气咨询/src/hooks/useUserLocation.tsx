@@ -19,7 +19,7 @@ export const useUserLocation = () => {
     queryKey: ['location'],
     queryFn: async () => {
       const location = await getPosition()
-      return { lon: location.coords.longitude, lat: location.coords.latitude }
+      return { lon: location.coords.longitude.toString(), lat: location.coords.latitude.toString() }
     },
     staleTime: 5 * 60 * 1000, //5min内数据是新鲜的
     retry: 1, //重试1次

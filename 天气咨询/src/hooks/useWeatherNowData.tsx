@@ -5,7 +5,7 @@ const apiHost = import.meta.env.VITE_API_HOST
 const apiKey = import.meta.env.VITE_API_KEY
 
 //获取对应维度的天气数据
-export const useWeatherNowData = (lon: number | null, lat: number | null) => {
+export const useWeatherNowData = (lon: string | null, lat: string | null) => {
   const data = useQuery<WeatherNowResponse | null>({
     queryKey: ['weather', lon, lat], // 将经纬度作为查询键的一部分，以便在位置变化时重新获取数据
     queryFn: async () => {

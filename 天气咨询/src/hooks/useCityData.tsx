@@ -5,7 +5,7 @@ const apiHost = import.meta.env.VITE_API_HOST
 const apiKey = import.meta.env.VITE_API_KEY
 
 //获取对应经纬度的城市地理数据
-export const useCityData = (lon: number | null, lat: number | null) => {
+export const useCityData = (lon: string | null, lat: string | null) => {
   const data = useQuery<CityLookupResponse | null>({
     queryKey: ['searchCity', lon, lat],
     queryFn: async () => {

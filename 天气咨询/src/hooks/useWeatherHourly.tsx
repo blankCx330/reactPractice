@@ -4,7 +4,7 @@ import type { GridWeatherHourlyResponse } from '../types/qweather'
 const apiHost = import.meta.env.VITE_API_HOST
 const apiKey = import.meta.env.VITE_API_KEY
 
-export const useWeatherHourly = (lon: number | null, lat: number | null) => {
+export const useWeatherHourly = (lon: string | null, lat: string | null) => {
   const data = useQuery<GridWeatherHourlyResponse>({
     queryKey: ['wearherHourly', lon, lat],
     queryFn: async () => {

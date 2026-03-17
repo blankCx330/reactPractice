@@ -42,17 +42,19 @@ export default function WeatherApp() {
 
   return (
     <div className="weather-app">
-      { uerLocationIsLoading ? 
-      <div className='loading-div'>网页加载中...</div> :
-        (<>
-        <ErrorBoundary>
-          <TopContainer />
-        </ErrorBoundary>
+      {uerLocationIsLoading ? (
+        <div className="cursor-wait loading-div">网页加载中...</div>
+      ) : (
+        <>
+          <ErrorBoundary>
+            <TopContainer />
+          </ErrorBoundary>
           <div className="main-content">
             <LeftContainer />
             <RightContainer />
           </div>
-        </>)}
+        </>
+      )}
     </div>
   )
 }

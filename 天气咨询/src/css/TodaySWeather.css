@@ -44,11 +44,7 @@
 }
 
 .now-weather-photo {
-  width: 40%;
-  height: 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
 /* --- 修改后的样式 --- */
@@ -62,6 +58,7 @@
   align-items: center;
   font-size: 1.6rem;
   color: rgba(255, 255, 255, 0.9);
+  padding-bottom: 1rem;
 }
 
 /* 白线分割 */
@@ -94,6 +91,12 @@
 .now-weather-photo i {
   font-size: clamp(3rem, 8vh, 6rem); /* 增大图标尺寸 */
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.favorite-btn{
+  position: relative;
+  left: 82%;
+  top: -12%;
 }
 
 /* 大屏设备 */

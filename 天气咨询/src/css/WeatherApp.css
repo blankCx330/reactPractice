@@ -83,14 +83,13 @@ body {
   overflow: hidden;
 }
 
-.loading-div{
+.loading-div {
   position: absolute;
   font-size: 8rem;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
 
 /* 大屏设备 */
 @media (min-width: 1280px) {

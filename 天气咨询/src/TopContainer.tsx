@@ -2,8 +2,10 @@ import './css/topContainer.css'
 import logo from './assets/logo.png'
 import Search from './iconSVG/Search'
 import MapPositioningSVG from './iconSVG/MapPositioningSVG'
+import FavoritesCityBtn from './FavoritesCityBtn'
 import { useState, useEffect, useRef } from 'react'
 import { useLocationStore } from './hooks/useLocationStore'
+import { useNowCityIdStore } from './hooks/useNowCityIdStore'
 import { useCityLocation } from './hooks/useCityLocation'
 import { useUserLocation } from './hooks/useUserLocation'
 import type { Location } from './types/qweather'
@@ -14,6 +16,9 @@ export default function TopContainer() {
 
   const location = useLocationStore(state => state.location)
   const setLocation = useLocationStore(state => state.setLocation)
+
+  const setCityId = useNowCityIdStore(state => state.setCityId)
+  const id = useNowCityIdStore(state => state.cityId)
 
   //获取搜索的城市坐标
   const { data: getCityLocation, isLoading: cityLocationIsLoading } = useCityLocation(inputCityName)
@@ -64,6 +69,8 @@ export default function TopContainer() {
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') setCityLocation()
+    if(getCityLocation?.location[0].id)
+      setCityId(getCityLocation?.location[0].id)
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,6 +81,8 @@ export default function TopContainer() {
     setInputCityName(data.name)
     setShowSuggestions(false)
     setLocation({ lon: data.lon, lat: data.lat })
+    if(getCityLocation?.location[0].id)
+      setCityId(getCityLocation?.location[0].id)
   }
   const handleBlur = () => {
     setTimeout(() => setShowSuggestions(false), 100)
@@ -111,6 +120,7 @@ export default function TopContainer() {
         />
         {suggestionsListText()}
       </div>
+      <FavoritesCityBtn />
       <div className="positioning-div" onClick={handleUserCurrentLoaction}>
         <MapPositioningSVG />
         <button className="positioning-btn">{positioningText()}</button>
