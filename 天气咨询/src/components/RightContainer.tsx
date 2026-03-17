@@ -2,11 +2,11 @@ import WeatherDataCard from './WeatherDataCard'
 import WindDirectionAndAirData from './WindDirectionAndAirData'
 import SunriseAndMoonriseTimes from './SunriseAndMoonriseTimes'
 import RealTimeCard from './RealTimeCard'
-import { useLocationStore } from './hooks/useLocationStore'
-import { useWeatherDailyData } from './hooks/useWeatherDailyData'
-import { useWeatherHourly } from './hooks/useWeatherHourly'
+import { useLocationStore } from '../hooks/useLocationStore'
+import { useWeatherDailyData } from '../hooks/useWeatherDailyData'
+import { useWeatherHourly } from '../hooks/useWeatherHourly'
 
-import './css/RightContainer.css'
+import '../css/RightContainer.css'
 export default function RightContainer() {
   const location = useLocationStore(state => state.location)
   const { data: weatherDaily, isLoading: weatherDailyIsLoading } = useWeatherDailyData(
@@ -41,13 +41,13 @@ export default function RightContainer() {
         </div>
       </div>
       <div className="real-time-weather-data">
-        {twentyFourWeather &&
+        {weatherHourlyIsLoading ? '加载中...' : twentyFourWeather &&
           twentyFourWeather?.hourly.map(data => (
             <RealTimeCard
               key={data.fxTime}
-              time={weatherHourlyIsLoading ? '加载中...' : data.fxTime}
+              time={data.fxTime}
               iconCode={data.icon}
-              temp={weatherHourlyIsLoading ? '加载中...' : data.temp}
+              temp={data.temp}
             />
           ))}
       </div>

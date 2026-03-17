@@ -1,4 +1,4 @@
-import './css/WeatherDataCard.css'
+import '../css/WeatherDataCard.css'
 export default function WeatherDataCard({
   data,
   title,

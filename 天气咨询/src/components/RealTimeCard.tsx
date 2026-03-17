@@ -1,4 +1,4 @@
-import './css/RealTimeCard.css'
+import '../css/RealTimeCard.css'
 
 export default function RealTimeCard({
   time,

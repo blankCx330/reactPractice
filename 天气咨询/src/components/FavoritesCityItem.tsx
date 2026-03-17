@@ -1,4 +1,4 @@
-import type { City } from "./types/qweather"
+import type { City } from "../types/qweather"
 
 interface Props {
   city: City

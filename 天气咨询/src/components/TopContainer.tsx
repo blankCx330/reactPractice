@@ -1,14 +1,14 @@
-import './css/topContainer.css'
-import logo from './assets/logo.png'
-import Search from './iconSVG/Search'
-import MapPositioningSVG from './iconSVG/MapPositioningSVG'
+import '../css/topContainer.css'
+import logo from '../assets/logo.png'
+import Search from '../iconSVG/Search'
+import MapPositioningSVG from '../iconSVG/MapPositioningSVG'
 import FavoritesCityBtn from './FavoritesCityBtn'
 import { useState, useEffect, useRef } from 'react'
-import { useLocationStore } from './hooks/useLocationStore'
-import { useNowCityIdStore } from './hooks/useNowCityIdStore'
-import { useCityLocation } from './hooks/useCityLocation'
-import { useUserLocation } from './hooks/useUserLocation'
-import type { Location } from './types/qweather'
+import { useLocationStore } from '../hooks/useLocationStore'
+import { useNowCityIdStore } from '../hooks/useNowCityIdStore'
+import { useCityLocation } from '../hooks/useCityLocation'
+import { useUserLocation } from '../hooks/useUserLocation'
+import type { Location } from '../types/qweather'
 export default function TopContainer() {
   const [inputCityName, setInputCityName] = useState('')
   //用户选择框的选项列表

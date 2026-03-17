@@ -1,4 +1,4 @@
-import './css/SunriseAndMoonriseTimes.css'
+import '../css/SunriseAndMoonriseTimes.css'
 export default function SunriseAndMoonriseTimes({
   sunrise,
   moonrise,

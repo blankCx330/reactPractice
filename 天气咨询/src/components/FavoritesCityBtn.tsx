@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { useFavoritesCityStore } from "./hooks/useFavoritesCityStore"
-import { useLocationStore } from "./hooks/useLocationStore"
+import { useFavoritesCityStore } from "../hooks/useFavoritesCityStore"
+import { useLocationStore } from "../hooks/useLocationStore"
 import { FavoritesCityItem } from "./FavoritesCityItem"
-import type { City } from "./types/qweather"
+import type { City } from "../types/qweather"
 export default function FavoritesCityBtn() {
 
     const [isHide, setIsHide] = useState(true)

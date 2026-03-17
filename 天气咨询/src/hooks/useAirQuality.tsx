@@ -3,7 +3,7 @@ import type { AirQualityCurrentResponse } from '../types/qweather'
 
 const apiHost = import.meta.env.VITE_API_HOST
 const apiKey = import.meta.env.VITE_API_KEY
-export const useAirQuality = (lon: string, lat: string) => {
+export const useAirQuality = (lon: string | null, lat: string | null) => {
   const data = useQuery<AirQualityCurrentResponse>({
     queryKey: ['airQuality', lon, lat],
     queryFn: async () => {

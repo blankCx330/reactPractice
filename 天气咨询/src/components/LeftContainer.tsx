@@ -1,7 +1,7 @@
 import TodaySWeather from './TodaySWeather'
 import SevenDayWeather from './SevenDayWeather'
 import ErrorBoundary from './ErrorBoundary'
-import './css/LeftContainer.css'
+import '../css/LeftContainer.css'
 
 export default function LeftContainer() {
   return (

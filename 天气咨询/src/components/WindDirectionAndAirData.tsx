@@ -1,6 +1,6 @@
-import './css/WindDirectionAndAirData.css'
-import { useLocationStore } from './hooks/useLocationStore'
-import { useAirQuality } from './hooks/useAirQuality'
+import '../css/WindDirectionAndAirData.css'
+import { useLocationStore } from '../hooks/useLocationStore'
+import { useAirQuality } from '../hooks/useAirQuality'
 export default function WindDirectionAndAirData() {
   const location = useLocationStore(state => state.location)
   const { data: airQuality, isLoading: airQualityIsLoading } = useAirQuality(

@@ -1,6 +1,6 @@
-import './css/SevenDayWeather.css'
-import { useLocationStore } from './hooks/useLocationStore.tsx'
-import { useWeatherDailyData } from './hooks/useWeatherDailyData.tsx'
+import '../css/SevenDayWeather.css'
+import { useLocationStore } from '../hooks/useLocationStore.tsx'
+import { useWeatherDailyData } from '../hooks/useWeatherDailyData.tsx'
 export default function SevenDayWeather() {
   const location = useLocationStore(state => state.location)
   const { data: weatherDaily, isLoading: weatherDailyIsLoading } = useWeatherDailyData(

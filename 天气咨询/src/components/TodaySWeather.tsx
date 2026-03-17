@@ -1,10 +1,9 @@
-import './css/TodaySWeather.css'
-import FavoriteIcon from './iconSVG/FavoriteIcon'
-import { useLocationStore } from './hooks/useLocationStore'
-import { useWeatherNowData } from './hooks/useWeatherNowData'
-import { useCityData } from './hooks/useCityData'
-import { useFavoritesCityStore } from './hooks/useFavoritesCityStore'
-import { useNowCityIdStore } from './hooks/useNowCityIdStore'
+import '../css/TodaySWeather.css'
+import FavoriteIcon from '../iconSVG/FavoriteIcon'
+import { useLocationStore } from '../hooks/useLocationStore'
+import { useWeatherNowData } from '../hooks/useWeatherNowData'
+import { useCityData } from '../hooks/useCityData'
+import { useFavoritesCityStore } from '../hooks/useFavoritesCityStore'
 export default function TodaySWeather() {
   const location = useLocationStore(state => state.location)
   const { data: useWeather, isLoading: weatherIsLoading } = useWeatherNowData(
