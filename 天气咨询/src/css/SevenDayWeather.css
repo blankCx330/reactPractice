@@ -65,7 +65,6 @@
 /* 日期显示 */
 .seven-day-weather-date {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.9);
   min-width: 90px;
   flex-shrink: 0; /* 防止日期被压缩 */
 }
@@ -73,7 +72,6 @@
 /* 天气描述 */
 .one-day-weather {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.9);
   margin-right: auto;
   margin-left: 15px;
   flex-shrink: 0; /* 防止天气描述被压缩 */
@@ -87,7 +85,6 @@
 /* 天气图标 */
 .seven-day-weather-content-item > i {
   font-size: 30px;
-  color: rgba(255, 255, 255, 0.9);
   flex-shrink: 0; /* 防止图标被压缩 */
 }
 

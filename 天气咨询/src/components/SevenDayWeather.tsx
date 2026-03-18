@@ -10,10 +10,10 @@ export default function SevenDayWeather() {
   const weatherList = () => {
     if (!weatherDaily) return null
     if (weatherDailyIsLoading) {
-      return <div className="seven-day-weather-content-item">加载中...</div>
+      return <div className="seven-day-weather-content-item bg-white/5 text-white/90">加载中...</div>
     }
     return weatherDaily.daily.map(data => (
-      <div key={data.fxDate} className="seven-day-weather-content-item">
+      <div key={data.fxDate} className="seven-day-weather-content-item bg-white/5 text-white/90">
         <div className="seven-day-weather-date">{data.fxDate}</div>
         <div className="one-day-weather">{data.textDay}</div>
         <div className="one-day-weather">

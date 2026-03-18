@@ -9,6 +9,7 @@ import { useNowCityIdStore } from '../hooks/useNowCityIdStore'
 import { useCityLocation } from '../hooks/useCityLocation'
 import { useUserLocation } from '../hooks/useUserLocation'
 import type { Location } from '../types/qweather'
+import ThemeToggleBtn from './ThemeToggleBtn'
 export default function TopContainer() {
   const [inputCityName, setInputCityName] = useState('')
   //用户选择框的选项列表
@@ -103,13 +104,16 @@ export default function TopContainer() {
   // })
 
   return (
-    <div className="top-container">
+    <div className="top-container bg-white dark:bg-black">
       <img src={logo} alt="logo" className="logo" />
+      <ThemeToggleBtn />
       <div className="input-div">
         <Search />
         <input
           type="text"
-          className="city-input"
+          className="city-input 
+            bg-white/60 text-black dark:bg-black/60 dark:text-white 
+            hover:border-white/60 hover:bg-neutral-800/80 hover:shadow-[0_4px_15px_rgba(0,0,0,0.5)]" 
           list="city-list"
           placeholder="输入城市"
           value={inputCityName}
