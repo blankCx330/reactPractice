@@ -104,7 +104,7 @@ export default function TopContainer() {
   // })
 
   return (
-    <div className="top-container bg-white dark:bg-black">
+    <div className="top-container bg-black">
       <img src={logo} alt="logo" className="logo" />
       <ThemeToggleBtn />
       <div className="input-div">
@@ -112,7 +112,7 @@ export default function TopContainer() {
         <input
           type="text"
           className="city-input 
-            bg-white/60 text-black dark:bg-black/60 dark:text-white 
+            text-white bg-black/60 
             hover:border-white/60 hover:bg-neutral-800/80 hover:shadow-[0_4px_15px_rgba(0,0,0,0.5)]" 
           list="city-list"
           placeholder="输入城市"

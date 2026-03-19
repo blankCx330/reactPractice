@@ -1,1 +1,5 @@
 @import 'tailwindcss';
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+/* 不加这个的话在系统是暗色模式下，dark: 样式会一直生效 */

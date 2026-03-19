@@ -1,5 +1,4 @@
 .sunrise-and-moonrise-times {
-  border: 1px solid rgb(255, 255, 255);
 }
 
 .sunrise-and-moonrise-times {
@@ -8,11 +7,8 @@
   margin: 10px;
   display: flex;
   flex-wrap: wrap;
-  background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(40, 40, 40, 0.9));
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: white;
   transition: transform 0.3s ease;
   overflow-x: auto;
 }
@@ -35,9 +31,8 @@
   align-items: center;
   gap: 12px;
   padding: 12px 15px;
-  background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
-  border-left: 4px solid #ffc107;
+  border-left: 6px solid #ffc107;
   transition: all 0.3s ease;
   font-size: 1.1rem;
   margin: 5px;
@@ -48,7 +43,6 @@
 }
 
 .time-div:hover {
-  background: rgba(255, 255, 255, 0.08);
   border-left-width: 6px;
   transform: translateX(5px);
 }

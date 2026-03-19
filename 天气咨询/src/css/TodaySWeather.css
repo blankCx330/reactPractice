@@ -55,7 +55,7 @@
   margin-bottom: 5%;
   display: flex;
   align-items: center;
-  font-size: 2rem;
+  font-size: 3rem;
   padding-bottom: 1rem;
   font-weight: bold;
 }
@@ -71,16 +71,18 @@
 .now-date {
   width: 100%;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   margin-top: 5px;
+  font-weight: bold;
 }
 
 /* 城市 - 移到白线下方 */
 .city {
   width: 100%;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 /* 图标大小控制 - 增大图标 */

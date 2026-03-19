@@ -55,9 +55,8 @@
   left: 50%;
   transform: translateX(-50%); /* 水平居中 */
   width: 97%; /* 分割线宽度为容器的80% */
-  height: 2px; /* 分割线高度 */
-  background-color: rgba(255, 255, 255, 0.7); /* 使用与原有边框相似的颜色 */
-}
+  height: 3px; /* 分割线高度 */
+  }
 
 /* 大屏设备 */
 @media (min-width: 1280px) {

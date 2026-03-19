@@ -55,9 +55,9 @@ export default function TodaySWeather() {
   }
 
   return (
-    <div className="today-weather bg-[rgb(60,60,60)]">
-      <span className="now-title text-white">今日天气</span>
-      <div className='favorite-btn cursor-pointer' 
+    <div className="today-weather transition-all bg-[rgb(229,231,120)] dark:bg-[rgb(60,60,60)]">
+      <span className="now-title text-black dark:text-white">今日天气</span>
+      <div className='favorite-btn select-none cursor-pointer size-10' 
         onClick={handleFavoriteOnClick}
       >
             <FavoriteIcon 
@@ -66,19 +66,19 @@ export default function TodaySWeather() {
               className={isFavorited ? 'text-yellow-400' : 'text-gray-400'}
             />
         </div>
-      <div className="temperature text-white">
+      <div className="temperature text-black dark:text-white">
         {temperature}
         <span className="celsius-symbol">℃</span>
       </div>
-      <div className="now-weather-photo text-white">
+      <div className="now-weather-photo text-black dark:text-white">
         <i className={'qi-' + iconDay}></i>
       </div>
-      <div className="now-weather-text text-white">{text}</div>
-      <div className="divider bg-white"></div>
-      <div className="now-date text-white/70">
+      <div className="now-weather-text text-black dark:text-white">{text}</div>
+      <div className="divider bg-black dark:bg-white"></div>
+      <div className="now-date text-black/70 dark:text-white/70">
         {date.getMonth() + 1}月{date.getDate()}日 {today}
       </div>
-      <div className="city text-white/80">
+      <div className="city text-black/80 dark:text-white/80">
         {cityCountry} {cityAdm} {cityName} {cityRegion}
       </div>
     </div>

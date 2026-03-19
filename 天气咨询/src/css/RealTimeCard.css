@@ -1,5 +1,4 @@
 .real-time-card {
-  border: 1px solid rgba(255, 255, 255, 0.15);
   /* Grid子项：填满单元格 */
   width: 100%;
   min-width: 0;
@@ -7,7 +6,6 @@
   height: auto;
   margin: 0; /* Grid使用gap控制间距 */
   border-radius: 5px;
-  background: rgba(60, 60, 60, 0.9);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
@@ -27,7 +25,6 @@
 }
 
 .real-time {
-  color: #ffffff;
   font-size: clamp(0.7rem, 1rem, 1rem);
   font-weight: 400;
   margin-bottom: 4px;
@@ -38,7 +35,6 @@
 }
 
 .real-time-temperature {
-  color: #ffffff;
   font-size: clamp(0.8rem, 1.2rem, 1.2rem);
   font-weight: 500;
   line-height: 1.2;
@@ -50,7 +46,6 @@
 .real-time-card i {
   font-size: clamp(24px, 4vh, 40px);
   max-width: 80%;
-  color: #ffffff;
 }
 
 /* 大屏设备 */

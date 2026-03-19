@@ -56,7 +56,7 @@ export default function WeatherApp() {
   const { data: sevenWeather, isLoading: sevenWeatherIsLoading } = useWeatherDailyData(lon, lat)
 
   return (
-    <div className="weather-app  dark:bg-black">
+    <div className="weather-app bg-blue-300 dark:bg-black">
       {(
         <>
           <ErrorBoundary>

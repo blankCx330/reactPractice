@@ -1,11 +1,9 @@
 .weather-data-card {
   /* 保持原有基础样式 */
   border-radius: 15px;
-  background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(40, 40, 40, 0.9));
   width: 23%;
   height: 20vh;
   min-height: 140px;
-  color: #ffffff;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   box-sizing: border-box;
 
@@ -32,9 +30,8 @@
 
 /* 标题样式 */
 .weather-data-card-header {
-  font-size: 0.9rem;
   opacity: 0.8;
-  font-weight: 400;
+  font-weight: bold;
   width: 100%;
   text-align: left;
   padding-bottom: 5px;

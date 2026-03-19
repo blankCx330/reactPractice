@@ -40,7 +40,7 @@ export default function RightContainer() {
           <WeatherDataCard title={'湿度'} data={humidity} iconCode={399} unit={'%'} />
         </div>
       </div>
-      <div className="real-time-weather-data">
+      <div className="real-time-weather-data before:bg-black dark:before:bg-white">
         {weatherHourlyIsLoading ? '加载中...' : twentyFourWeather &&
           twentyFourWeather?.hourly.map(data => (
             <RealTimeCard

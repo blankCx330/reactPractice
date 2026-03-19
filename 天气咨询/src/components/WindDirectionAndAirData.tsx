@@ -14,19 +14,19 @@ export default function WindDirectionAndAirData() {
   const pollutants = airQuality?.pollutants
 
   return (
-    <div className="wind-direction-and-air-data">
+    <div className="wind-direction-and-air-data text-black bg-[rgb(0,216,151)] dark:text-white dark:bg-[rgb(60,60,60)]">
       <div
-        className="air-quality"
-        style={{ borderLeft: `4px solid rgb(${color?.red},${color?.green},${color?.blue})` }}
+        className="air-quality dark:bg-white/5"
+        style={{ border: `4px solid rgba(${color?.red},${color?.green},${color?.blue},0.8)` }}
       >
-        <span className="air-quality-text">
+        <span className="air-quality-text text-black dark:text-white/90">
           <span className="air-quality-name">空气质量:</span>
           {airQuality && (
             <span
-              className="air-quality-index"
+              className="air-quality-index border-2"
               style={{
                 color: `rgba(${color?.red},${color?.green},${color?.blue},${color?.alpha})`,
-                background: `rgba(${color?.red},${color?.green},${color?.blue}, 0.15)`,
+                background: `rgba(${color?.red},${color?.green},${color?.blue}, 0.2)`,
               }}
             >
               {index}
@@ -34,7 +34,7 @@ export default function WindDirectionAndAirData() {
           )}
         </span>
 
-        {airQuality && <span className="air-quality-level">{category}</span>}
+        {airQuality && <span className="air-quality-level text-black dark:text-white/80">{category}</span>}
       </div>
       <i className="qi-2208"></i>
       <div className="pollutant-1">

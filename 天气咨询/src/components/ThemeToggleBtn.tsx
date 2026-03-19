@@ -9,9 +9,9 @@ export default function ThemeToggleBtn() {
             <button
                 onClick={toggleTheme}
                 className="
-                    rounded-full text-2xl w-20 h-12 border border-2 border-white/50
-                    text-black/80 dark:text-white/80
-                    hover:bg-gray-300 dark:hover:bg-gray-600
+                    rounded-full text-3xl w-20 h-12 border border-2 border-white/50
+                    text-white/80
+                    hover:bg-gray-300 hover:text-black hover:border-black
                     transition-colors duration-200
                 "
                 aria-label={theme === 'light' ? '切换到夜间模式' : '切换到日间模式'}
