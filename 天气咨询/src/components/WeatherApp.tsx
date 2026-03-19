@@ -11,6 +11,7 @@ import { useWeatherDailyData } from '../hooks/useWeatherDailyData'
 import { useTopCity } from '../hooks/useTopCity'
 import { LeftContainerSkeleton, RightContainerSkeleton } from '../components/skeleton'
 import { useThemeStore } from '../hooks/useThemeStore'
+import TempChart from './TempChart'
 
 export default function WeatherApp() {
   //热门城市列表数据
@@ -35,18 +36,17 @@ export default function WeatherApp() {
     }
   }, [userLocation])
 
-
   const theme = useThemeStore(state => state.theme)
 
   //监听theme状态,第一次加载时同步主题到 DOM
   //document.documentElement.classList.add('dark')可以往<html>中的class添加dark
-  useEffect(()=>{
-    if(theme === 'dark'){
+  useEffect(() => {
+    if (theme === 'dark') {
       document.documentElement.classList.add('dark')
-    }else{
+    } else {
       document.documentElement.classList.remove('dark')
     }
-  },[theme])
+  }, [theme])
 
   //获取对应经纬度的城市地理数据
   const { data: nowCityData } = useCityData(lon, lat)
@@ -57,7 +57,7 @@ export default function WeatherApp() {
 
   return (
     <div className="weather-app bg-blue-300 dark:bg-black">
-      {(
+      {
         <>
           <ErrorBoundary>
             <TopContainer />
@@ -67,7 +67,7 @@ export default function WeatherApp() {
             {sevenWeatherIsLoading ? <RightContainerSkeleton /> : <RightContainer />}
           </div>
         </>
-      )}
+      }
     </div>
   )
 }

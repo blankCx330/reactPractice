@@ -70,8 +70,7 @@ export default function TopContainer() {
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') setCityLocation()
-    if(getCityLocation?.location[0].id)
-      setCityId(getCityLocation?.location[0].id)
+    if (getCityLocation?.location[0].id) setCityId(getCityLocation?.location[0].id)
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -82,8 +81,7 @@ export default function TopContainer() {
     setInputCityName(data.name)
     setShowSuggestions(false)
     setLocation({ lon: data.lon, lat: data.lat })
-    if(getCityLocation?.location[0].id)
-      setCityId(getCityLocation?.location[0].id)
+    if (getCityLocation?.location[0].id) setCityId(getCityLocation?.location[0].id)
   }
   const handleBlur = () => {
     setTimeout(() => setShowSuggestions(false), 100)
@@ -113,7 +111,7 @@ export default function TopContainer() {
           type="text"
           className="city-input 
             text-white bg-black/60 
-            hover:border-white/60 hover:bg-neutral-800/80 hover:shadow-[0_4px_15px_rgba(0,0,0,0.5)]" 
+            hover:border-white/60 hover:bg-neutral-800/80 hover:shadow-[0_4px_15px_rgba(0,0,0,0.5)]"
           list="city-list"
           placeholder="输入城市"
           value={inputCityName}

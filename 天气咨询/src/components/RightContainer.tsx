@@ -41,15 +41,17 @@ export default function RightContainer() {
         </div>
       </div>
       <div className="real-time-weather-data before:bg-black dark:before:bg-white">
-        {weatherHourlyIsLoading ? '加载中...' : twentyFourWeather &&
-          twentyFourWeather?.hourly.map(data => (
-            <RealTimeCard
-              key={data.fxTime}
-              time={data.fxTime}
-              iconCode={data.icon}
-              temp={data.temp}
-            />
-          ))}
+        {weatherHourlyIsLoading
+          ? '加载中...'
+          : twentyFourWeather &&
+            twentyFourWeather?.hourly.map(data => (
+              <RealTimeCard
+                key={data.fxTime}
+                time={data.fxTime}
+                iconCode={data.icon}
+                temp={data.temp}
+              />
+            ))}
       </div>
     </div>
   )

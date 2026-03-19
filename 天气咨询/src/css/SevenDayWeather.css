@@ -1,7 +1,8 @@
 /* 七日天气预报容器 */
 .seven-day-weather {
   width: 95%;
-  height: 55%;
+  height: 60%;
+  padding-bottom: 1rem;
   border-radius: 20px;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -16,6 +17,7 @@
   padding: 12px 15px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-size: 16px;
   font-weight: 600;
 }
@@ -81,7 +83,6 @@
   font-size: 30px;
   flex-shrink: 0; /* 防止图标被压缩 */
 }
-
 
 /* 滚动条样式 - 与全局统一 */
 .seven-day-weather-content {

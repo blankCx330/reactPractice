@@ -131,13 +131,13 @@
   transform: translate(-50%, -50%);
 }
 
-.favorites-list{
+.favorites-list {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.theme-toggle-btn{
+.theme-toggle-btn {
   position: absolute;
   top: 50%;
   left: 20%;

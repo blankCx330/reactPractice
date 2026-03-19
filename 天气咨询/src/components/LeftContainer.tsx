@@ -2,6 +2,7 @@ import TodaySWeather from './TodaySWeather'
 import SevenDayWeather from './SevenDayWeather'
 import ErrorBoundary from './ErrorBoundary'
 import '../css/LeftContainer.css'
+import TempChart from './TempChart'
 
 export default function LeftContainer() {
   return (

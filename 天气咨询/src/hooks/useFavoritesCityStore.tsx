@@ -29,14 +29,14 @@ export const useFavoritesCityStore = create<FavoritesCityList>()(
         set({ list: [...currentList, city] })
       },
       removeCity: (id: string) => {
-        set(state => ({list: state.list.filter(city => city.id !== id)}))
-      }, 
+        set(state => ({ list: state.list.filter(city => city.id !== id) }))
+      },
       isInList: (id: string) => {
         return get().list.some(city => city.id === id) //find找到会返回id，未找到会返回undefinded
-      }
+      },
     }),
     {
-      name: 'favorites-city-list'
+      name: 'favorites-city-list',
     }
   )
 )

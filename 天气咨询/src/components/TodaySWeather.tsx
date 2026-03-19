@@ -26,7 +26,6 @@ export default function TodaySWeather() {
   const cityName = cityDataIsLoading ? '加载中' : (cityData?.location?.[0]?.adm2 ?? '未知城市')
   const cityRegion = cityDataIsLoading ? '加载中' : (cityData?.location?.[0]?.name ?? '未知地区')
 
-
   const addCity = useFavoritesCityStore(state => state.addCity)
   const removeCity = useFavoritesCityStore(state => state.removeCity)
   const isInList = useFavoritesCityStore(state => state.isInList)
@@ -38,34 +37,34 @@ export default function TodaySWeather() {
   const isFavorited = isInList(cityId)
 
   const handleFavoriteOnClick = () => {
-      if(!cityData) return
+    if (!cityData) return
 
-      if(isFavorited){
-        removeCity(cityId)
-      }else{
-        addCity({
-          id: cityId,
-          name: cityData.location[0].name,
-          adm2: cityData.location[0].adm2,
-          lon: cityData.location[0].lon,
-          lat: cityData.location[0].lat
-        })
-      }
-
+    if (isFavorited) {
+      removeCity(cityId)
+    } else {
+      addCity({
+        id: cityId,
+        name: cityData.location[0].name,
+        adm2: cityData.location[0].adm2,
+        lon: cityData.location[0].lon,
+        lat: cityData.location[0].lat,
+      })
+    }
   }
 
   return (
     <div className="today-weather transition-all bg-[rgb(229,231,120)] dark:bg-[rgb(60,60,60)]">
       <span className="now-title text-black dark:text-white">今日天气</span>
-      <div className='favorite-btn select-none cursor-pointer size-10' 
+      <div
+        className="favorite-btn select-none cursor-pointer size-10"
         onClick={handleFavoriteOnClick}
       >
-            <FavoriteIcon 
-              filled={isFavorited} 
-              size={45}
-              className={isFavorited ? 'text-yellow-400' : 'text-gray-400'}
-            />
-        </div>
+        <FavoriteIcon
+          filled={isFavorited}
+          size={45}
+          className={isFavorited ? 'text-yellow-400' : 'text-gray-400'}
+        />
+      </div>
       <div className="temperature text-black dark:text-white">
         {temperature}
         <span className="celsius-symbol">℃</span>
