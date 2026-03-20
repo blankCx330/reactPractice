@@ -8,7 +8,13 @@ export default function SunriseAndMoonriseTimes({
 }) {
   const moonIconCode = 801
   return (
-    <div className="sunrise-and-moonrise-times text-black bg-yellow-100 dark:text-white dark:bg-[rgb(60,60,60)]">
+    <div
+      className="sunrise-and-moonrise-times 
+          text-black dark:text-white 
+          bg-yellow-100 dark:bg-[rgb(60,60,60)]
+          dark:border-2 dark:border-white/50
+        "
+    >
       <div className="time-text">日出与月出</div>
       <div className="time-div bg-yellow-200 dark:bg-white/10">
         <i className="qi-100"></i>

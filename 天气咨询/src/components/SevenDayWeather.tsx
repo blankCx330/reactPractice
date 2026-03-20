@@ -2,7 +2,7 @@ import '../css/SevenDayWeather.css'
 import { useLocationStore } from '../hooks/useLocationStore.tsx'
 import { useWeatherDailyData } from '../hooks/useWeatherDailyData.tsx'
 import { useThemeStore } from '../hooks/useThemeStore.tsx'
-import TempChartBtn from './TempChartBtn.tsx'
+import TempChartBtn from './chart/TempChartBtn.tsx'
 export default function SevenDayWeather() {
   const theme = useThemeStore(state => state.theme)
   const location = useLocationStore(state => state.location)
@@ -35,9 +35,15 @@ export default function SevenDayWeather() {
     ))
   }
   return (
-    <div className="seven-day-weather transition-all bg-[rgb(229,231,120)] dark:bg-[rgb(60,60,60)]">
+    <div
+      className="seven-day-weather 
+          transition-all 
+          bg-[rgb(229,231,120)] dark:bg-[rgb(60,60,60)]
+          dark:border-2 dark:border-white/50
+          "
+    >
       <div className="seven-day-weather-header border-b-2  text-black/90 dark:text-white/90">
-        <div className='flex'>
+        <div className="flex">
           <svg
             className="seven-day-weather-header-icon"
             viewBox="0 0 1024 1024"
@@ -55,7 +61,7 @@ export default function SevenDayWeather() {
               fill={theme === 'light' ? '#000000' : '#ffffff'}
             ></path>
           </svg>
-           7日天气预报
+          7日天气预报
         </div>
         <TempChartBtn />
       </div>

@@ -14,7 +14,13 @@ export default function WindDirectionAndAirData() {
   const pollutants = airQuality?.pollutants
 
   return (
-    <div className="wind-direction-and-air-data text-black bg-yellow-100 dark:text-white dark:bg-[rgb(60,60,60)]">
+    <div
+      className="wind-direction-and-air-data 
+          text-black dark:text-white 
+          bg-yellow-100 dark:bg-[rgb(60,60,60)]
+          dark:border-2 dark:border-white/50
+        "
+    >
       <div
         className="air-quality dark:bg-white/5"
         style={{ border: `4px solid rgba(${color?.red},${color?.green},${color?.blue},0.8)` }}

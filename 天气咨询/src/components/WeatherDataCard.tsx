@@ -11,7 +11,13 @@ export default function WeatherDataCard({
   unit: string
 }) {
   return (
-    <div className="weather-data-card text-black bg-yellow-300/70 dark:text-white dark:bg-[rgb(60,60,60)]">
+    <div
+      className="weather-data-card 
+          text-black dark:bg-[rgb(60,60,60)] 
+          dark:text-white bg-yellow-300/70 
+          dark:border-2 dark:border-white/50
+        "
+    >
       <div className="weather-data-card-header text-xl">{title}</div>
       <div className="card-content">
         <i className={'qi-' + iconCode}></i>

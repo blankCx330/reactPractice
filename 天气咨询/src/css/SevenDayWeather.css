@@ -2,7 +2,7 @@
 .seven-day-weather {
   width: 95%;
   height: 60%;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
   border-radius: 20px;
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);

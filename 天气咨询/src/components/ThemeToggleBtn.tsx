@@ -13,6 +13,7 @@ export default function ThemeToggleBtn() {
                     text-white/80
                     hover:bg-gray-300 hover:text-black hover:border-black
                     transition-colors duration-200
+                    cursor-pointer
                 "
         aria-label={theme === 'light' ? '切换到夜间模式' : '切换到日间模式'}
       >

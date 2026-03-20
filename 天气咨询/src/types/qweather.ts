@@ -478,3 +478,17 @@ export interface City {
   lon: string
   lat: string
 }
+/**
+ *温度数据图传入的参数
+ */
+export interface TempChartData {
+  name: string
+  data: string[]
+  color?: string
+}
+
+export interface TempChartProp {
+  title: string
+  time: string[]
+  data: TempChartData[]
+}

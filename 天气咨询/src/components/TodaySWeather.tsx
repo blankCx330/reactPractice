@@ -53,7 +53,13 @@ export default function TodaySWeather() {
   }
 
   return (
-    <div className="today-weather transition-all bg-[rgb(229,231,120)] dark:bg-[rgb(60,60,60)]">
+    <div
+      className="today-weather 
+          transition-all 
+          bg-[rgb(229,231,120)] dark:bg-[rgb(60,60,60)]
+          dark:border-2 dark:border-white/50
+          "
+    >
       <span className="now-title text-black dark:text-white">今日天气</span>
       <div
         className="favorite-btn select-none cursor-pointer size-10"

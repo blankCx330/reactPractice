@@ -11,7 +11,7 @@ import { useWeatherDailyData } from '../hooks/useWeatherDailyData'
 import { useTopCity } from '../hooks/useTopCity'
 import { LeftContainerSkeleton, RightContainerSkeleton } from '../components/skeleton'
 import { useThemeStore } from '../hooks/useThemeStore'
-import TempChart from './TempChart'
+import TempChart from './chart/SevenTempChart'
 
 export default function WeatherApp() {
   //热门城市列表数据
