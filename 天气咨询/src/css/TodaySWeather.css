@@ -21,11 +21,11 @@
 }
 
 .temperature {
-  width: 40%;
-  height: 40%;
+  position: relative;
+  left: 20%;
+  top: 2%;
   font-weight: 700;
-  font-size: clamp(1.5rem, 4vw, 3rem);
-  margin-left: 5%;
+  font-size: 3.5rem;
   display: flex;
   align-items: flex-start;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -43,6 +43,8 @@
 
 .now-weather-photo {
   position: relative;
+  left: 20%;
+  top: 5%;
 }
 
 /* --- 修改后的样式 --- */
@@ -51,11 +53,12 @@
 .now-weather-text {
   width: 40%;
   height: 10%;
-  margin-left: 10%;
+  margin-left: 15%;
   margin-bottom: 5%;
+  margin-top: 2%;
   display: flex;
   align-items: center;
-  font-size: 3rem;
+  font-size: 2rem;
   padding-bottom: 1rem;
   font-weight: bold;
 }
@@ -91,10 +94,10 @@
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.favorite-btn {
-  position: relative;
-  left: 82%;
-  top: -12%;
+.btn-group {
+  position: absolute;
+  left: 10.5%;
+  top: 11%;
 }
 
 /* 大屏设备 */

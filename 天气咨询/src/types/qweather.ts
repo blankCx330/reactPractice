@@ -492,3 +492,23 @@ export interface TempChartProp {
   time: string[]
   data: TempChartData[]
 }
+
+/**
+ * AI点评获取的数据
+ */
+
+export interface AICommentRequest {
+  city: string
+  weather: string | undefined
+  nowTemp: string | undefined 
+  maxTemp: string | undefined
+  minTemp: string | undefined
+  precip: string | undefined //降水量 毫米
+  humidity: string | undefined //湿度 百分比
+  uvIndex: string | undefined //紫外线强度
+  vis: string | undefined //能见度
+  windDirDay: string | undefined //白天风向
+  windScaleDay: string | undefined //白天风力 公里/小时
+  windDirNight: string | undefined //夜间风向
+  windScaleNight: string | undefined //夜间风力 公里/小时
+}

@@ -1,5 +1,6 @@
 import '../css/TodaySWeather.css'
 import FavoriteIcon from '../iconSVG/FavoriteIcon'
+import AICommentBtn from './AIComment/AICommentBtn'
 import { useLocationStore } from '../hooks/useLocationStore'
 import { useWeatherNowData } from '../hooks/useWeatherNowData'
 import { useCityData } from '../hooks/useCityData'
@@ -61,15 +62,18 @@ export default function TodaySWeather() {
           "
     >
       <span className="now-title text-black dark:text-white">今日天气</span>
-      <div
-        className="favorite-btn select-none cursor-pointer size-10"
-        onClick={handleFavoriteOnClick}
-      >
-        <FavoriteIcon
-          filled={isFavorited}
-          size={45}
-          className={isFavorited ? 'text-yellow-400' : 'text-gray-400'}
-        />
+      <div className='btn-group flex gap-2 h-12 w-36 justify-center content-center' >
+        <AICommentBtn />
+        <div
+          className="favorite-btn select-none cursor-pointer size-10"
+          onClick={handleFavoriteOnClick}
+        >
+          <FavoriteIcon
+            filled={isFavorited}
+            size={45}
+            className={isFavorited ? 'text-yellow-400' : 'text-gray-400'}
+          />
+        </div>
       </div>
       <div className="temperature text-black dark:text-white">
         {temperature}
