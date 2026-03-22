@@ -1,0 +1,342 @@
+/* WindDirectionAndAirData.css */
+.wind-direction-and-air-data {
+  border-radius: 15px;
+  padding: 5px;
+  width: 50%;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.wind-direction-and-air-data:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.air-quality {
+  width: 100%;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.air-quality:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-left-width: 6px;
+}
+
+.air-quality-text {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.air-quality-name {
+  margin-right: 10px;
+}
+
+.air-quality-index {
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.air-quality-level {
+  font-size: 3rem;
+}
+
+.pollutant-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  height: 50%;
+  width: 100%;
+}
+
+.pollutant-1,
+.pollutant-2,
+.pollutant-3,
+.pollutant-4 {
+  border-left: 2px dashed #2196f3;
+  width: 20%;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pollutant-4 {
+  border-right: 2px dashed #2196f3;
+}
+
+.pollutant-1:hover,
+.pollutant-2:hover,
+.pollutant-3:hover,
+.pollutant-4:hover {
+  background: rgba(33, 149, 243, 0.1);
+  border: 5px solid #2196f3;
+  transform: translateX(2px);
+  transform: scale(1.05);
+}
+
+.pollutant-text {
+  font-size: 1.2rem;
+}
+
+.pollutant-value {
+  font-weight: bold;
+  color: #2196f3;
+}
+
+.pollutant-unit {
+  font-size: 0.8rem;
+}
+
+.wind-direction-and-air-data i {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: clamp(2rem, 4vw, 4rem);
+  margin-bottom: 8px;
+  width: 20%;
+}
+
+/* 大屏设备 */
+@media (min-width: 1280px) {
+  /* 大屏优化样式 */
+}
+
+/* 响应式设计 */
+/* 平板设备 */
+@media (max-width: 1024px) {
+  .wind-direction-and-air-data {
+    width: 100%;
+    margin: 5px;
+    padding: 4px;
+  }
+
+  .air-quality {
+    font-size: 1rem;
+    padding: 10px 12px;
+  }
+
+  .air-quality-text {
+    font-size: 1.8rem;
+  }
+
+  .air-quality-index {
+    font-size: 1.8rem;
+  }
+
+  .air-quality-level {
+    font-size: 2.5rem;
+  }
+
+  .pollutant-name {
+    font-size: 1.8rem;
+  }
+
+  .pollutant-1,
+  .pollutant-2,
+  .pollutant-3,
+  .pollutant-4 {
+    width: 25%;
+  }
+
+  .pollutant-text {
+    font-size: 1rem;
+  }
+
+  .wind-direction-and-air-data i {
+    font-size: 6rem;
+  }
+}
+
+/* 小型平板设备 */
+@media (max-width: 768px) {
+  .wind-direction-and-air-data {
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+  }
+
+  .air-quality {
+    font-size: 1rem;
+    padding: 10px 12px;
+  }
+
+  .air-quality-text {
+    font-size: 1.6rem;
+  }
+
+  .air-quality-index {
+    font-size: 1.6rem;
+  }
+
+  .air-quality-level {
+    font-size: 2.2rem;
+  }
+
+  .pollutant-name {
+    font-size: 1.6rem;
+  }
+
+  .pollutant-1,
+  .pollutant-2,
+  .pollutant-3,
+  .pollutant-4 {
+    width: 25%;
+    margin-bottom: 5px;
+  }
+
+  .pollutant-text {
+    font-size: 0.95rem;
+  }
+
+  .wind-direction-and-air-data i {
+    font-size: 5.5rem;
+  }
+}
+
+/* 手机设备 */
+@media (max-width: 480px) {
+  .wind-direction-and-air-data {
+    width: 100%;
+    margin: 3px;
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      'air air'
+      'poll1 poll2'
+      'poll3 poll4';
+    gap: 8px;
+  }
+
+  .air-quality {
+    grid-area: air;
+    font-size: 0.9rem;
+    padding: 8px 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .air-quality-text {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .air-quality-name {
+    margin-right: 0;
+    font-size: 0.85rem;
+  }
+
+  .air-quality-index {
+    font-size: 1.1rem;
+    padding: 2px 8px;
+  }
+
+  .air-quality-level {
+    font-size: 1rem;
+  }
+
+  /* 隐藏风向图标 */
+  .wind-direction-and-air-data i {
+    display: none;
+  }
+
+  /* 污染物 2x2 网格布局 */
+  .pollutant-1 {
+    grid-area: poll1;
+  }
+  .pollutant-2 {
+    grid-area: poll2;
+  }
+  .pollutant-3 {
+    grid-area: poll3;
+  }
+  .pollutant-4 {
+    grid-area: poll4;
+  }
+
+  .pollutant-1,
+  .pollutant-2,
+  .pollutant-3,
+  .pollutant-4 {
+    width: auto;
+    margin-bottom: 0;
+    border-left: 3px solid #2196f3;
+    border-right: none;
+    padding: 6px 8px;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 6px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .dark .pollutant-1,
+  .dark .pollutant-2,
+  .dark .pollutant-3,
+  .dark .pollutant-4 {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .pollutant-4 {
+    border-right: none;
+  }
+
+  .pollutant-1:hover,
+  .pollutant-2:hover,
+  .pollutant-3:hover,
+  .pollutant-4:hover {
+    transform: none;
+    border: none;
+    border-left: 3px solid #2196f3;
+    background: rgba(33, 149, 243, 0.15);
+  }
+
+  .pollutant-name {
+    display: inline;
+    font-size: 0.8rem;
+    height: auto;
+    width: auto;
+    margin-right: 4px;
+    opacity: 0.6;
+  }
+
+  .pollutant-text {
+    font-size: 0.85rem;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+
+  .pollutant-value {
+    font-size: 1rem;
+  }
+
+  .pollutant-unit {
+    font-size: 0.7rem;
+  }
+}

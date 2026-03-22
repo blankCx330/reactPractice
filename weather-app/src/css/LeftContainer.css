@@ -1,0 +1,71 @@
+.left-container {
+  height: 91vh;
+  width: 20vw;
+  min-width: 280px;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* 大屏设备 */
+@media (min-width: 1280px) {
+  /* 大屏优化样式 */
+}
+
+/* 响应式设计 */
+/* 平板设备 */
+@media (max-width: 1024px) {
+  .left-container {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+}
+
+/* 小型平板设备 */
+/* 小型平板设备 - 开启Grid重排序 */
+@media (max-width: 768px) {
+  .left-container {
+    display: contents; /* 容器在布局中"消失" */
+    padding: 0;
+    height: auto;
+    width: auto;
+    min-height: auto;
+  }
+
+  /* TodaySWeather - order: 1 (第2个) */
+  .today-weather {
+    order: 1;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* SevenDayWeather - order: 3 (第4个) */
+  .seven-day-weather {
+    order: 3;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* 手机设备 */
+@media (max-width: 480px) {
+  /* 保持display: contents */
+  .left-container {
+    display: contents;
+  }
+
+  .today-weather {
+    order: 1;
+    width: 100%;
+  }
+
+  .seven-day-weather {
+    order: 3;
+    width: 100%;
+  }
+}
