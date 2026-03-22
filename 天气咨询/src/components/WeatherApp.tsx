@@ -5,18 +5,14 @@ import ErrorBoundary from './ErrorBoundary'
 import { useLocationStore } from '../hooks/useLocationStore'
 import { useEffect } from 'react'
 import { useUserLocation } from '../hooks/useUserLocation'
-import { useCityData } from '../hooks/useCityData'
-import { useWeatherNowData } from '../hooks/useWeatherNowData'
+// import { useCityData } from '../hooks/useCityData'
+// import { useWeatherNowData } from '../hooks/useWeatherNowData'
 import { useWeatherDailyData } from '../hooks/useWeatherDailyData'
-import { useTopCity } from '../hooks/useTopCity'
 import { LeftContainerSkeleton, RightContainerSkeleton } from '../components/skeleton'
 import { useThemeStore } from '../hooks/useThemeStore'
-import TempChart from './chart/SevenTempChart'
+// import TempChart from './chart/SevenTempChart'
 
 export default function WeatherApp() {
-  //热门城市列表数据
-  const { data: hotCities } = useTopCity()
-  const topCityList = hotCities?.topCityList ?? []
 
   //通过hook获取当前经纬度
   const { data: userLocation, isLoading: uerLocationIsLoading } = useUserLocation()
@@ -48,12 +44,12 @@ export default function WeatherApp() {
     }
   }, [theme])
 
-  //获取对应经纬度的城市地理数据
-  const { data: nowCityData } = useCityData(lon, lat)
-  //获取对应维度的天气数据
-  const { data: useWeather } = useWeatherNowData(lon, lat)
-  //获取对应维度七日的天气数据
-  const { data: sevenWeather, isLoading: sevenWeatherIsLoading } = useWeatherDailyData(lon, lat)
+  // //获取对应经纬度的城市地理数据
+  // const { data: nowCityData } = useCityData(lon, lat)
+  // //获取对应维度的天气数据
+  // const { data: useWeather } = useWeatherNowData(lon, lat)
+  // //获取对应维度七日的天气数据
+  const { isLoading: sevenWeatherIsLoading } = useWeatherDailyData(lon, lat)
 
   return (
     <div className="weather-app bg-blue-300 dark:bg-black">

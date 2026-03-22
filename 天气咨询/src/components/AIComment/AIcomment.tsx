@@ -10,7 +10,7 @@ export default function AIComment() {
   const { data: now } = useWeatherNowData(location.lon, location.lat)
   const { data: weatherData } = useWeatherDailyData(location.lon, location.lat)
 
-  const { content, isLoading, error, generateComment, canel, clearContent } = useAIStream()
+  const { content, isLoading, error, generateComment, clearContent } = useAIStream()
 
   const handleGenerate = () => {
     const data: AICommentRequest = {

@@ -27,12 +27,13 @@ export default function TodaySWeather() {
   const cityName = cityDataIsLoading ? '加载中' : (cityData?.location?.[0]?.adm2 ?? '未知城市')
   const cityRegion = cityDataIsLoading ? '加载中' : (cityData?.location?.[0]?.name ?? '未知地区')
 
-  const addCity = useFavoritesCityStore(state => state.addCity)
-  const removeCity = useFavoritesCityStore(state => state.removeCity)
-  const isInList = useFavoritesCityStore(state => state.isInList)
-  //不订阅结果(list)的话zustand会认为什么都没改变,就不会触发重渲染
-  //但list已经正常添加，切换到别的城市再切回来可以看到收藏按键正常亮起
-  const list = useFavoritesCityStore(state => state.list)
+  // const addCity = useFavoritesCityStore(state => state.addCity)
+  // const removeCity = useFavoritesCityStore(state => state.removeCity)
+  // const isInList = useFavoritesCityStore(state => state.isInList)
+  // //不订阅结果(list)的话zustand会认为什么都没改变,就不会触发重渲染
+  // //但list已经正常添加，切换到别的城市再切回来可以看到收藏按键正常亮起
+  // const list = useFavoritesCityStore(state => state.list)
+  const {addCity, removeCity, isInList} = useFavoritesCityStore()
 
   const cityId = cityData ? cityData?.location?.[0].id : ''
   const isFavorited = isInList(cityId)

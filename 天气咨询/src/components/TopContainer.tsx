@@ -3,7 +3,7 @@ import logo from '../assets/logo.png'
 import Search from '../iconSVG/Search'
 import MapPositioningSVG from '../iconSVG/MapPositioningSVG'
 import FavoritesCityBtn from './FavoritesCityBtn'
-import { useState, useEffect, useRef } from 'react'
+import { useState} from 'react'
 import { useLocationStore } from '../hooks/useLocationStore'
 import { useNowCityIdStore } from '../hooks/useNowCityIdStore'
 import { useCityLocation } from '../hooks/useCityLocation'
@@ -15,11 +15,11 @@ export default function TopContainer() {
   //用户选择框的选项列表
   const [showSuggestions, setShowSuggestions] = useState(false)
 
-  const location = useLocationStore(state => state.location)
+  // const location = useLocationStore(state => state.location)
   const setLocation = useLocationStore(state => state.setLocation)
 
   const setCityId = useNowCityIdStore(state => state.setCityId)
-  const id = useNowCityIdStore(state => state.cityId)
+  // const id = useNowCityIdStore(state => state.cityId)
 
   //获取搜索的城市坐标
   const { data: getCityLocation, isLoading: cityLocationIsLoading } = useCityLocation(inputCityName)

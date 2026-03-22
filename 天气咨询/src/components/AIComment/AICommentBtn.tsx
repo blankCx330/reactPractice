@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { createPortal } from "react-dom"
 import AIComment from "./AIcomment"
+import { useAIStream } from '../../hooks/useAIStream'
 
 export default function AICommentBtn(){
     const [show, setShow] = useState(false)
-
+    const {canel} = useAIStream()
     return(<>
         <button className="ai-comment-btn text-2xl border border-2 rounded-full px-2 h-4/5
                     text-black dark:text-white/80
@@ -26,7 +27,10 @@ export default function AICommentBtn(){
                         flex items-center justify-center
                         bg-black/50
                      "       
-                     onClick={()=>setShow(false)}
+                     onClick={()=>{
+                            canel()
+                            setShow(false)
+                        }}
                 >
                     <AIComment />
                 </div>
