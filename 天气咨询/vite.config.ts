@@ -5,6 +5,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/reactPractice/天气咨询/',
   plugins: [
     react(),
     tailwindcss(),
