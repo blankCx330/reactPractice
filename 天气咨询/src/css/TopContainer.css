@@ -8,30 +8,30 @@
   justify-content: space-between;
   align-items: center;
   z-index: 1;
+  gap: 10px;
+  padding: 0 15px;
 }
 
 .logo {
-  position: relative;
-  left: 10px;
   height: 70%;
   width: auto;
+  flex-shrink: 0;
 }
 
 .input-div {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  flex: 0 0 auto;
+  min-width: 0;
+  position: relative;
 }
 
 .icon {
   position: absolute;
-  left: 8%;
+  left: 12px;
   height: 50%;
-  min-height: 30px;
+  min-height: 24px;
   width: auto;
   z-index: 1;
 }
@@ -66,18 +66,17 @@
 
 .positioning-div {
   height: 80%;
-  width: 13vw;
+  width: auto;
+  min-width: 120px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
   position: relative;
-  right: 10px;
-  min-width: 100px;
 }
 /* 完成基本样式，利用ai美化 */
 .positioning-btn {
   height: 90%;
   width: 100%;
-  position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
   border-radius: 100px;
   background-color: rgba(41, 41, 236, 0.8);
   border: 5px solid rgba(85, 85, 255, 0.6);
@@ -88,47 +87,46 @@
   justify-content: center;
   align-items: center;
   line-height: 1rem;
-  padding-left: 25px;
-  overflow: hidden;
+  padding-left: 45px;
+  padding-right: 15px;
+  box-sizing: border-box;
 
   /* 新增美化效果 */
   transition: all 0.3s ease;
   box-shadow: 0 2px 10px rgba(41, 41, 236, 0.4);
 
   /* 防止文字换行并隐藏超出部分 */
-  white-space: nowrap; /* 防止文字换行 */
-  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .positioning-btn:hover {
   background-color: rgba(85, 85, 255, 0.9);
   border-color: rgba(41, 41, 236, 0.8);
   box-shadow: 0 4px 15px rgba(85, 85, 255, 0.6);
-  transform: translate(0, -50%) scale(1.02);
+  transform: scale(1.02);
 }
 
 /* 新增点击状态样式 */
 .positioning-btn:active {
-  transform: translate(0, -50%) scale(0.98);
+  transform: scale(0.98);
   box-shadow: 0 1px 5px rgba(41, 41, 236, 0.4);
 }
 
 .icon-map-positioning {
   position: absolute;
   top: 50%;
-  left: 10px;
+  left: 15px;
   transform: translate(0, -50%);
-  height: 6vh;
-  min-height: 30px;
+  height: 24px;
+  min-height: 24px;
   width: auto;
   z-index: 1;
 }
 
 .favorites-btn {
-  position: absolute;
-  top: 50%;
-  left: 65%;
-  transform: translate(-50%, -50%);
+  flex-shrink: 0;
 }
 
 .favorites-list {
@@ -138,10 +136,7 @@
 }
 
 .theme-toggle-btn {
-  position: absolute;
-  top: 50%;
-  left: 20%;
-  transform: translateY(-50%);
+  flex-shrink: 0;
 }
 
 /* 大屏设备 */
@@ -154,6 +149,7 @@
 @media (max-width: 1024px) {
   .top-container {
     padding: 0 10px;
+    gap: 8px;
   }
 
   .logo {
@@ -161,28 +157,33 @@
   }
 
   .city-input {
-    width: 20vw;
+    width: auto;
     min-width: 150px;
     font-size: 1.5rem;
+    padding-left: 40px;
   }
 
   .icon {
     height: 5vh;
-    min-height: 25px;
+    min-height: 22px;
+    left: 10px;
   }
 
   .positioning-div {
-    width: 15vw;
-    min-width: 90px;
+    width: auto;
+    min-width: 100px;
   }
 
   .positioning-btn {
     font-size: 1.2em;
+    padding-left: 40px;
+    padding-right: 12px;
   }
 
   .icon-map-positioning {
-    height: 5vh;
-    min-height: 25px;
+    height: 22px;
+    min-height: 22px;
+    left: 12px;
   }
 }
 
@@ -192,6 +193,8 @@
     padding: 0 8px;
     height: 10vh;
     min-height: 65px;
+    gap: 6px;
+    flex-wrap: wrap;
   }
 
   .logo {
@@ -199,7 +202,7 @@
   }
 
   .city-input {
-    width: 30vw;
+    width: auto;
     min-width: 140px;
     font-size: 1.3rem;
     padding-left: 45px;
@@ -212,18 +215,20 @@
   }
 
   .positioning-div {
-    width: 20vw;
+    width: auto;
     min-width: 90px;
   }
 
   .positioning-btn {
     font-size: 1.1em;
-    padding-left: 22px;
+    padding-left: 35px;
+    padding-right: 10px;
   }
 
   .icon-map-positioning {
-    height: 4.5vh;
-    min-height: 22px;
+    height: 20px;
+    min-height: 20px;
+    left: 10px;
   }
 
   .suggestions-list {
@@ -235,57 +240,50 @@
 /* 手机设备 */
 @media (max-width: 480px) {
   .top-container {
-    padding: 0 8px;
-    height: 11vh;
-    min-height: 70px;
+    padding: 12px 16px;
+    height: auto;
+    min-height: auto;
+    gap: 12px;
+    flex-wrap: wrap;
+    /* 固定黑色背景 - logo背景为黑色，且需要遮挡滚动内容 */
+    background: #000000;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
 
   .logo {
-    height: 50%;
+    height: 36px;
+    width: auto;
   }
 
-  .city-input {
-    width: 35vw;
-    min-width: 130px;
-    font-size: 1.2rem;
-    padding-left: 40px;
-  }
-
-  .icon {
-    height: 4vh;
-    min-height: 20px;
-    left: 5vh;
-  }
-
+  /* 右侧按钮组 */
   .positioning-div {
-    width: 44px;
-    min-width: 44px;
-    height: 44px;
-    position: relative;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    flex-shrink: 0;
   }
 
-  /* 定位按钮 - 小屏幕只显示图标 */
+  /* 定位按钮 - 圆形图标按钮 */
   .positioning-btn {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
     padding: 0;
     font-size: 0;
     border-radius: 50%;
     justify-content: center;
     align-items: center;
-    transform: none;
+    border-width: 3px;
   }
 
   .positioning-btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
   }
 
   .positioning-btn:active {
-    transform: scale(0.98);
+    transform: scale(0.95);
   }
 
   /* 图标绝对定位在按钮中心 */
@@ -294,17 +292,57 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 24px;
-    min-height: 24px;
-    width: 24px;
+    height: 20px;
+    min-height: 20px;
+    width: 20px;
     z-index: 1;
-    /* 关键：让点击穿透到下层按钮 */
     pointer-events: none;
   }
 
+  /* 搜索框容器 - 占满整行 */
+  .input-div {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin-top: 4px;
+  }
+
+  /* 搜索输入框 - 圆角优化 */
+  .city-input {
+    width: 100%;
+    max-width: 100%;
+    min-width: auto;
+    height: 48px;
+    min-height: 48px;
+    font-size: 1rem;
+    padding-left: 48px;
+    padding-right: 16px;
+    border-radius: 24px;
+    border-width: 1px;
+  }
+
+  .dark .city-input {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .city-input:focus {
+    border-width: 2px;
+    box-shadow: 0 0 0 3px rgba(85, 85, 255, 0.15);
+  }
+
+  .icon {
+    height: 20px;
+    min-height: 20px;
+    left: 16px;
+  }
+
+  /* 搜索建议列表 */
   .suggestions-list {
-    width: 50%;
-    max-height: 200px;
+    width: calc(100% - 32px);
+    max-width: none;
+    max-height: 180px;
+    border-radius: 16px;
+    margin-top: 8px;
   }
 }
 

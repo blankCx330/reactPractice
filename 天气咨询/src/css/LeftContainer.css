@@ -1,12 +1,14 @@
 .left-container {
   height: 91vh;
   width: 20vw;
-  min-width: 200px;
+  min-width: 280px;
   max-width: 350px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 /* 大屏设备 */

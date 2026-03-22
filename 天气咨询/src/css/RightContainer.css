@@ -2,7 +2,9 @@
 .right-container {
   height: 91vh;
   min-height: 500px;
-  width: 80vw;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .weather-data {
