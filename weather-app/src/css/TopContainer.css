@@ -127,10 +127,12 @@
 
 .favorites-btn {
   flex-shrink: 0;
+  position: relative;
 }
 
 .favorites-list {
   position: absolute;
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -342,6 +344,14 @@
     max-width: none;
     max-height: 180px;
     border-radius: 16px;
+    margin-top: 8px;
+  }
+
+  /* 移动端收藏列表保持原有布局 */
+  .favorites-list {
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
     margin-top: 8px;
   }
 }
