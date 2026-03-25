@@ -1,8 +1,22 @@
-import type { AICommentRequest } from "@/types/qweather";
+import type { AICommentRequest } from '@/types/qweather'
 
-const buildPrompt = (params : AICommentRequest) => {
-    const {city, weather, nowTemp, maxTemp, minTemp, precip, humidity, uvIndex, vis, windDirDay, windScaleDay, windDirNight, windScaleNight} = params
-    return `${city}今日天气情况：
+const buildPrompt = (params: AICommentRequest) => {
+  const {
+    city,
+    weather,
+    nowTemp,
+    maxTemp,
+    minTemp,
+    precip,
+    humidity,
+    uvIndex,
+    vis,
+    windDirDay,
+    windScaleDay,
+    windDirNight,
+    windScaleNight,
+  } = params
+  return `${city}今日天气情况：
             - 天气状况：${weather}
             - 当前温度：${nowTemp}°C
             - 今日最高温度：${maxTemp}°C
@@ -25,41 +39,41 @@ const buildPrompt = (params : AICommentRequest) => {
             请直接输出建议内容，不要有开场白。`
 }
 
-export async function fetchAICommet(params:AICommentRequest):Promise<Response> {
-    const deepseekApiKey = import.meta.env.VITE_DEEPSEEK_API_KEY
-    if (!deepseekApiKey) {
-        throw new Error('DeepSeek API Key 未配置，请在 .env 文件中设置 VITE_DEEPSEEK_API_KEY')
-    }
+export async function fetchAICommet(params: AICommentRequest): Promise<Response> {
+  const deepseekApiKey = import.meta.env.VITE_DEEPSEEK_API_KEY
+  if (!deepseekApiKey) {
+    throw new Error('DeepSeek API Key 未配置，请在 .env 文件中设置 VITE_DEEPSEEK_API_KEY')
+  }
 
-    const response = await fetch('https://api.deepseek.com/v1/chat/completions',{
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${deepseekApiKey}`,
+  const response = await fetch('https://api.deepseek.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${deepseekApiKey}`,
+    },
+    body: JSON.stringify({
+      model: 'deepseek-chat',
+      messages: [
+        {
+          role: 'system',
+          content:
+            '你是一位专业的天气分析师，擅长根据天气数据给出实用的生活建议。你的回答简洁、专业、有温度。语气要柔和，不要过于机械，但同时又不能失去专业的建议',
         },
-        body: JSON.stringify({
-            model: 'deepseek-chat',
-            messages: [
-                {
-                    role: 'system',
-                    content:
-                        '你是一位专业的天气分析师，擅长根据天气数据给出实用的生活建议。你的回答简洁、专业、有温度。语气要柔和，不要过于机械，但同时又不能失去专业的建议'
-                },
-                {
-                    role: 'user',
-                    content: buildPrompt(params),
-                },
-            ],
-            stream: true,
-            temperature: 0.7,
-            max_tokens: 500,
-        })
-    })
+        {
+          role: 'user',
+          content: buildPrompt(params),
+        },
+      ],
+      stream: true,
+      temperature: 0.7,
+      max_tokens: 500,
+    }),
+  })
 
-    if(!response.ok){
-        const err = await response.json().catch(()=>({}))
-        throw new Error(err.error?.messages || `API 请求失败: ${response.status}`);//response.status返回失败代码
-    }
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({}))
+    throw new Error(err.error?.messages || `API 请求失败: ${response.status}`) //response.status返回失败代码
+  }
 
-    return response
+  return response
 }

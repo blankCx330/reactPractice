@@ -13,7 +13,6 @@ import { useThemeStore } from '../hooks/useThemeStore'
 // import TempChart from './chart/SevenTempChart'
 
 export default function WeatherApp() {
-
   //通过hook获取当前经纬度
   const { data: userLocation, isLoading: uerLocationIsLoading } = useUserLocation()
 

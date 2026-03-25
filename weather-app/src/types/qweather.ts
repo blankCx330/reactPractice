@@ -500,7 +500,7 @@ export interface TempChartProp {
 export interface AICommentRequest {
   city: string
   weather: string | undefined
-  nowTemp: string | undefined 
+  nowTemp: string | undefined
   maxTemp: string | undefined
   minTemp: string | undefined
   precip: string | undefined //降水量 毫米

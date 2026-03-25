@@ -33,7 +33,7 @@ export default function TodaySWeather() {
   // //不订阅结果(list)的话zustand会认为什么都没改变,就不会触发重渲染
   // //但list已经正常添加，切换到别的城市再切回来可以看到收藏按键正常亮起
   // const list = useFavoritesCityStore(state => state.list)
-  const {addCity, removeCity, isInList} = useFavoritesCityStore()
+  const { addCity, removeCity, isInList } = useFavoritesCityStore()
 
   const cityId = cityData ? cityData?.location?.[0].id : ''
   const isFavorited = isInList(cityId)
@@ -63,7 +63,7 @@ export default function TodaySWeather() {
           "
     >
       <span className="now-title text-black dark:text-white">今日天气</span>
-      <div className='btn-group flex gap-2 h-12 w-36 justify-center content-center' >
+      <div className="btn-group flex gap-2 h-12 w-36 justify-center content-center">
         <AICommentBtn />
         <div
           className="favorite-btn select-none cursor-pointer size-10"
