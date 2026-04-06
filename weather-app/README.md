@@ -1,73 +1,23 @@
-# React + TypeScript + Vite
+## weather-app README 应该写的内容：
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 项目简介
+基于和风天气API的天气预报应用，支持实时天气、7日预报、城市搜索、收藏管理
 
-Currently, two official plugins are available:
+### 技术选型及原因
+| 技术 | 为什么选它 | 不选什么 |
+|-----|-----------|---------|
+| React Query | 自动缓存、轮询、错误处理，减少手写逻辑 | 原生fetch需要手写所有状态管理 |
+| Zustand | 轻量（1KB）、无Provider包裹、persist内置 | Redux配置复杂、学习成本高 |
+| TypeScript | 类型安全，减少运行时错误 | JS重构时容易出bug |
+| Vite | HMR快、配置简单 | Webpack配置复杂 |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 核心难点与解决
+1. 经纬度定位API返回延迟 → 用React Query的staleTime缓存5分钟
+2. 城市搜索防抖 → 自定义useDebouncedValue hook
+3. 收藏列表持久化 → Zustand persist middleware
+4. 主题切换全局生效 → Zustand + DOM class同步
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 性能优化
+- 骨架屏减少白屏时间
+- React Query缓存减少重复请求
+- Zustand精准订阅避免不必要的重渲染
