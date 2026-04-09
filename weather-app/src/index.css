@@ -2,3 +2,38 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 /* 不加这个的话在系统是暗色模式下，dark: 样式会一直生效 */
+
+/* ========================================
+   Portal 弹窗覆盖层 - 确保高于导航栏和搜索建议
+   导航栏手机端 z-index: 100，搜索建议 z-index: 1000
+   ======================================== */
+@media (max-width: 480px) {
+  body > div.fixed.z-50 {
+    z-index: 1100 !important;
+  }
+
+  /* ========================================
+     图表弹窗 - 切换按钮手机端适配
+     修复按钮遮挡标题的问题
+     ======================================== */
+  /* 图表弹窗容器 */
+  body > div.fixed.z-50 > div.relative {
+    width: 95% !important;
+    height: 80% !important;
+    padding-top: 60px !important;
+  }
+
+  /* 切换图表按钮 - 缩小字体和调整位置 */
+  body > div.fixed.z-50 > div.relative > button:nth-child(2) {
+    font-size: 0.875rem !important;
+    padding: 0.375rem 0.75rem !important;
+    top: 12px !important;
+    left: 56px !important;
+  }
+
+  /* 关闭按钮 - 调整位置 */
+  body > div.fixed.z-50 > div.relative > button:first-child {
+    top: 12px !important;
+    left: 12px !important;
+  }
+}

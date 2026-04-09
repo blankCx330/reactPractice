@@ -243,6 +243,7 @@
 @media (max-width: 480px) {
   .top-container {
     padding: 12px 16px;
+    padding-top: env(safe-area-inset-top);
     height: auto;
     min-height: auto;
     gap: 12px;

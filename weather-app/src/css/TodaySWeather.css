@@ -302,4 +302,15 @@
   .dark .city {
     background: rgba(255, 255, 255, 0.1);
   }
+
+  /* AI点评按钮 - 手机端适配 */
+  .ai-comment-btn {
+    font-size: 1rem !important;
+    padding: 0.25rem 0.75rem !important;
+    height: 36px !important;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
