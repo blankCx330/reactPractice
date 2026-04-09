@@ -47,8 +47,8 @@ export default defineConfig({
             },
           },
           {
-            // 缓存静态资源
-            urlPattern: /^https:\/\/.*\.(js|css|png|jpg|svg)$/,
+            // 缓存静态资源（包括字体）
+            urlPattern: /^https:\/\/.*\.(js|css|png|jpg|svg|woff|woff2|ttf)$/,
             handler: 'CacheFirst',
             options: {
               cacheName: 'static-resources',
@@ -63,5 +63,5 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
     css: true,
-  }
+  },
 })
