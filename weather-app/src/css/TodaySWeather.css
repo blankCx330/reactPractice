@@ -183,6 +183,7 @@
   .today-weather {
     width: 100%;
     min-height: auto;
+    height: auto;
     padding: 16px 20px;
     border-radius: 20px;
     display: grid;
@@ -195,6 +196,8 @@
       'city city city';
     gap: 10px 16px;
     align-items: center;
+    /* 手机端移除 overflow: hidden，确保内容完整显示 */
+    overflow: visible;
   }
 
   /* 标题 - 更醒目 */

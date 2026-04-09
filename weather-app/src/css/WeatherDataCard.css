@@ -2,7 +2,7 @@
   /* 保持原有基础样式 */
   border-radius: 15px;
   width: 23%;
-  height: 20vh;
+  height: 20dvh;
   min-height: 140px;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   box-sizing: border-box;
@@ -88,7 +88,7 @@
 @media (max-width: 1024px) {
   .weather-data-card {
     width: 30%;
-    height: 18vh;
+    height: 18dvh;
     padding: 12px;
   }
 
@@ -113,7 +113,7 @@
 @media (max-width: 768px) {
   .weather-data-card {
     width: 45%;
-    height: 16vh;
+    height: 16dvh;
     padding: 12px;
   }
 

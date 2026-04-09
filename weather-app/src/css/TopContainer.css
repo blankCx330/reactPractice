@@ -1,7 +1,7 @@
 .top-container {
   position: sticky;
   top: 0;
-  height: 9vh;
+  height: 9dvh;
   width: 100%;
   min-height: 60px;
   display: flex;
@@ -39,7 +39,7 @@
 /* 完成基本样式，利用ai美化 */
 .city-input {
   box-sizing: border-box;
-  height: 8vh;
+  height: 8dvh;
   min-height: 40px;
   min-width: 200px;
   width: 15vw;
@@ -48,7 +48,7 @@
 
   font-size: clamp(1rem, 1.5vw, 1.8rem);
   text-align: center;
-  line-height: 8vh;
+  line-height: 8dvh;
   outline: none;
 
   /* 新增美化效果 */
@@ -166,7 +166,7 @@
   }
 
   .icon {
-    height: 5vh;
+    height: 5dvh;
     min-height: 22px;
     left: 10px;
   }
@@ -193,7 +193,7 @@
 @media (max-width: 768px) {
   .top-container {
     padding: 0 8px;
-    height: 10vh;
+    height: 10dvh;
     min-height: 65px;
     gap: 6px;
     flex-wrap: wrap;
@@ -211,9 +211,9 @@
   }
 
   .icon {
-    height: 4.5vh;
+    height: 4.5dvh;
     min-height: 22px;
-    left: 6vh;
+    left: 6dvh;
   }
 
   .positioning-div {

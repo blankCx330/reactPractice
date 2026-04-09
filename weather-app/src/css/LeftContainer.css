@@ -1,5 +1,5 @@
 .left-container {
-  height: 91vh;
+  height: 91dvh;
   width: 20vw;
   min-width: 280px;
   max-width: 350px;
@@ -42,13 +42,21 @@
     order: 1;
     width: 100%;
     margin: 0;
+    /* 手机端确保完整显示 */
+    height: auto;
+    min-height: auto;
+    overflow: visible;
   }
 
-  /* SevenDayWeather - order: 3 (第4个) */
+  /* SevenDayWeather - order: 2 (第3个) */
   .seven-day-weather {
-    order: 3;
+    order: 2;
     width: 100%;
     margin: 0;
+    /* 手机端确保完整显示 */
+    height: auto;
+    min-height: auto;
+    overflow: visible;
   }
 }
 
@@ -62,10 +70,16 @@
   .today-weather {
     order: 1;
     width: 100%;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
   }
 
   .seven-day-weather {
-    order: 3;
+    order: 2;
     width: 100%;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
   }
 }

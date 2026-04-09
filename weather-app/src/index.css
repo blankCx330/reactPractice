@@ -4,6 +4,49 @@
 /* 不加这个的话在系统是暗色模式下，dark: 样式会一直生效 */
 
 /* ========================================
+   Safari 移动端视口高度修复
+   问题：Safari 地址栏/工具栏占用空间，100vh 包含浏览器UI导致布局截断
+   解决：使用 100dvh（动态视口高度）替代 100vh
+   ======================================== */
+
+/* 根容器 - 桌面端使用动态视口高度 */
+html,
+body {
+  width: 100%;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  /* 安全区域处理 */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ========================================
+   手机端 - 允许内容超出视口，支持页面滚动
+   ======================================== */
+@media (max-width: 768px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  #root {
+    height: auto;
+    min-height: 100dvh;
+  }
+}
+
+/* ========================================
    Portal 弹窗覆盖层 - 确保高于导航栏和搜索建议
    导航栏手机端 z-index: 100，搜索建议 z-index: 1000
    ======================================== */

@@ -1,6 +1,6 @@
 /* RightContainer.css */
 .right-container {
-  height: 91vh;
+  height: 91dvh;
   min-height: 500px;
   flex: 1;
   min-width: 0;
@@ -8,7 +8,8 @@
 }
 
 .weather-data {
-  height: 60%;
+  min-height: 60%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -34,7 +35,8 @@
 
 .real-time-weather-data {
   flex: 1;
-  height: 40%;
+  min-height: 40%;
+  height: auto;
   display: grid;
   grid-template-columns: repeat(12, 1fr); /* 每行固定12个 */
   gap: 6px; /* 统一间距 */
@@ -100,10 +102,13 @@
   }
 
   .weather-data {
-    order: 4; /* 第5个显示 */
+    order: 3; /* 第4个显示 - 空气质量卡片 */
     height: auto;
     width: 100%;
     padding: 12px 0;
+    /* 手机端移除内部滚动，让内容完整显示 */
+    overflow: visible;
+    min-height: auto;
   }
 
   .weather-data-top,
@@ -114,12 +119,15 @@
   }
 
   .real-time-weather-data {
-    order: 2; /* 第3个显示 */
+    order: 4; /* 第5个显示 - 24小时卡片 */
     grid-template-columns: repeat(6, 1fr); /* 每行6个，共4行 */
     gap: 8px;
     padding: 10px;
     height: auto;
     width: 100%;
+    /* 手机端移除内部滚动，让内容完整显示 */
+    overflow: visible;
+    min-height: auto;
   }
 }
 
@@ -132,11 +140,13 @@
   }
 
   .weather-data {
-    order: 4; /* 第5个显示 */
+    order: 3; /* 第4个显示 - 空气质量卡片 */
     height: auto;
     width: 100%;
     padding: 10px 0;
-    -webkit-overflow-scrolling: touch;
+    /* 手机端移除内部滚动 */
+    overflow: visible;
+    min-height: auto;
   }
 
   .weather-data-top {
@@ -154,11 +164,13 @@
   }
 
   .real-time-weather-data {
-    order: 2; /* 第3个显示 */
+    order: 4; /* 第5个显示 - 24小时卡片 */
     grid-template-columns: repeat(4, 1fr); /* 每行4个，共6行 */
     gap: 6px;
     padding: 8px;
     width: 100%;
-    -webkit-overflow-scrolling: touch;
+    /* 手机端移除内部滚动 */
+    overflow: visible;
+    min-height: auto;
   }
 }

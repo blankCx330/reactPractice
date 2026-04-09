@@ -1,7 +1,8 @@
 /* 七日天气预报容器 */
 .seven-day-weather {
   width: 95%;
-  height: 60%;
+  min-height: 60%;
+  height: auto;
   padding-bottom: 0.5rem;
   border-radius: 20px;
   backdrop-filter: blur(10px);
@@ -156,9 +157,10 @@
     padding: 12px;
     border-radius: 12px;
     height: auto;
-    min-height: 200px;
-    max-height: 320px;
-    overflow: hidden;
+    min-height: auto;
+    /* 手机端移除固定高度限制，让内容完整显示 */
+    max-height: none;
+    overflow: visible;
   }
 
   .seven-day-weather-header {
@@ -174,29 +176,10 @@
   .seven-day-weather-content {
     padding: 6px;
     gap: 6px;
-    min-height: 140px;
-    max-height: 260px;
     height: auto;
-    overflow-y: auto !important;
-    overflow-x: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .seven-day-weather-content::-webkit-scrollbar {
-    width: 6px;
-    display: block;
-  }
-
-  .seven-day-weather-content::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 3px;
-  }
-
-  .seven-day-weather-content::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
+    min-height: auto;
+    /* 手机端移除内部滚动，让内容完整显示 */
+    overflow: visible;
   }
 
   .seven-day-weather-content-item {
